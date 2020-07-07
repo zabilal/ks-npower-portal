@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Cafe - Register</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+        <style type="text/css" rel="stylesheet">
+            .btn {
+            border: none;
+                display: inline-flex;
+                height: 42px;
+                width: 112px;
+                align-items: center;
+                color: #fff;
+                cursor: pointer;
+                background: #3377c0;
+                text-transform: uppercase;
+                justify-content: center;
+                letter-spacing: 1px;
+            }
+
+            body {
+                background: lightgrey;
+            }
+        </style>
+	</head>
+	<body>
+		<div class="wrapper">
+            <form action="" id="wizard">
+        		<!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <h3>IDENTITY VERIFICATION</h3>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                BVN
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Date of Birth
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <input type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd - mm - yyyy" id="dp1">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+				<!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                	<h3>Bio-Data and Contact</h3>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                First Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Middle Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Last Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                E-mail
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-email"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Date of Birth
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <input type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd - mm - yyyy" id="dp1">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Gender
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <select class="form-control">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Phone Number
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                               Additional Phone Number (Optional)
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        State of Residence(where you live)
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-city"></i>
+                        <select class="form-control">
+                            <option value="Male">Abia</option>
+                            <option value="Female">Adamawa</option>
+                        </select>
+                    </div> 
+                    </div> 
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                               LGA of Residence
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-city-alt"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                    <label for="">
+                        Electoral Ward
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-city-alt"></i>
+                        <select class="form-control">
+                            <option value="Male">Abia</option>
+                            <option value="Female">Adamawa</option>
+                        </select>
+                    </div>  
+                        </div>
+                        
+                    </div>
+
+
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                               State of Origin(Where you're from)
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-city"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                    <label for="">
+                        LGA of Origin(Where you're from)
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-city-alt"></i>
+                        <select class="form-control">
+                            <option value="Male">Abia</option>
+                            <option value="Female">Adamawa</option>
+                        </select>
+                    </div>  
+                        </div>
+                        
+                    </div>
+
+                    <div style="margin: 0.8rem 0px">
+                    <label for="">
+                        Residential Address
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <input type="text" class="form-control">
+                    </div> 
+                    </div> 
+
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                               Postal Code(Optional)
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-email-open"></i>
+                                <input type="text" class="form-control">
+                            </div>
+
+
+                          
+                        </div>
+                        
+                    </div>
+
+                    <br>
+
+                    <label for="">
+                       Do you have any disability?
+                    </label>
+                    
+                        
+                        <input type="radio" name="disability">Yes 
+                        <input type="radio" name="disability">No
+
+                </section>
+
+
+                <!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                    <h3>Education and Program</h3>
+                        
+                        <label for="">
+                           Did you go to school?
+                        </label>
+                        <br>
+                    
+                        
+                        <input type="radio" name="school">Yes <br>
+                        <input type="radio" name="school">No
+                        <br>
+                        <br>
+                            <label for="">
+                                Highest Level of Education
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-book"></i>
+                                <select class="form-control">
+                                    <option value="HND">HND</option>
+                                    <option value="OND">OND</option>
+                                </select>
+                            </div>
+                                               
+<br>
+
+                            <label for="">
+                                Select year attended
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <select class="form-control">
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                </select>
+                            </div>
+
+
+                    <div style="margin: 1rem 0px">
+                    <label for="">
+                        Type of Institution
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <select class="form-control">
+                            <option value="Polytechnic">Polytechnic</option>
+                            <option value="College">College</option>
+                        </select>
+                    </div> 
+                    </div> 
+
+
+
+                    <div style="margin: 1rem 0px">
+                    <label for="">
+                        Select Institution attended
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <select class="form-control">
+                            <option value="ABU">ABU Zaria</option>
+                            <option value="ATBU">ATBU</option>
+                        </select>
+                    </div> 
+                    </div>                    
+
+
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Enter Course Studied
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-book"></i>
+                        <input type="text" class="form-control">
+                    </div> 
+                    </div> 
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Upload Degree Certificate
+                    </label>
+                    <div class="form-holder">
+                        <input type="file" class="form-control">
+                        <hr>
+                        <p><strong><a href="#" style="color: darkgreen">Add additional Degree</a></strong></p>
+                    </div> 
+                    </div> 
+
+                    <br>
+                    <br>
+
+                    <label for="">
+                      Select your preferred program
+                    </label>
+                    <br>
+                        
+                        <input type="radio" name="program">N-Teach <br> 
+                        <input type="radio" name="program">N-Agro <br>
+                        <input type="radio" name="program">N-Health <br> 
+                        <input type="radio" name="program">N-Build <br>
+                        <input type="radio" name="program">N-Tech <br> 
+                        <input type="radio" name="program">N-Creative <br>
+                </section>
+
+
+
+
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+                <section>
+                    <h3 style="margin-bottom: 37px;">Employment and other details</h3>
+                        <label for="">
+                           Are you currently employed?
+                        </label>
+                        <br>
+                    
+                        
+                        <input type="radio" name="employment">Yes <br>
+                        <input type="radio" name="employment">No
+                        <br>
+                        <br>
+
+
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                How much money(Naira) do you earn per month today?
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-money"></i>
+                                <select class="form-control">
+                                    <option disabled="disabled">N</option>
+                                    <option value="10,000">10,000</option>
+                                    <option value="20,000">20,000</option>
+                                    <option value="30,000">30,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-col">
+                            <label for="">
+                                Dependents: How many people do you feed today(E.g, Family, Relatives, Parents) ?
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account"></i>
+                                <select class="form-control">
+                                    <option disabled="disabled"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
+
+
+                    <div class="form-row">
+
+
+                       <div class="form-col">
+                    <label for="">
+                        Select ID Type
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-face"></i>
+                        <select class="form-control">
+                            <option disabled="disabled">ID</option>
+                            <option value="national ID">National ID Card</option>
+                            <option value="permanent voters card">Permanent Voter's Card</option>
+                            <option value="international passport">International Passport</option>
+                        </select>
+                    </div>  
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                               Input ID Number
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+ 
+                        
+                    </div>
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Upload Government Issued ID
+                    </label>
+                    <div class="form-holder">
+                        <input type="file" class="form-control">
+                    </div> 
+                    </div> 
+
+
+
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Upload Passport Photograph
+                    </label>
+                    <div class="form-holder">
+                        <input type="file" class="form-control">
+                    </div> 
+                    </div> 
+
+
+
+
+
+                </section>
+
+
+
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+                <section>
+                    <h3 style="margin-bottom: 37px;">Review and submit</h3>
+
+
+                    <input type="submit" name="" class="btn">
+                </section>
+            </form>
+		</div>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<!-- JQUERY STEP -->
+		<script src="js/jquery.steps.js"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="vendor/date-picker/js/datepicker.js"></script>
+		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+
+		<script src="js/main.js"></script>
+
+
+</body>
+</html>
