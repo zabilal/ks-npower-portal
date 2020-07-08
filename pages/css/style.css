@@ -16,18 +16,11 @@ body {
   font-family: "Poppins-Regular";
   font-size: 14px;
   margin: 0;
-  color: #999;
-  background: url("../images/form-wizard-bg.jpg") no-repeat center center;
-  height: 100vh;
+  color: #333;
+  background: lightgrey;
   background-size: cover;
   display: flex;
   align-items: center; }
-
-/* Utilities*/
-
-.my {
-  margin-top: 1.5rem;
-}
 
 :focus {
   outline: none; }
@@ -35,7 +28,7 @@ body {
 textarea {
   resize: none; }
 
-input, textarea, select, button {
+input, textarea, select, button, label,  {
   font-family: "Poppins-Regular";
   font-size: 14px;
   color: #333; }
@@ -44,8 +37,10 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   cursor: pointer; }
-  select option[value=""][disabled] {
-    display: none; }
+.wrapper form section {
+  display: none;
+}
+
 
 p, h1, h2, h3, h4, h5, h6, ul {
   margin: 0; }
@@ -67,56 +62,19 @@ img {
 
 .wrapper {
   width: 819px;
-  margin: auto;
-  padding: 7px;
-  background: url("../images/form-bg.png") repeat; }
+  margin: 1rem auto;
+  padding: 2rem;
+  background: white }
 
 .wizard {
   position: relative;
   background: #fff;
-  padding: 64px 58px 0;
-  height: auto; 
-padding-bottom: 1rem;}
-
-.steps .current-info, .steps .number {
-  display: none; }
-
-.steps {
-  position: absolute;
-  right: 42px;
-  top: 5px;
-  z-index: 9; 
-  display: none !important;
+  padding: 3rem;
+  height: auto;
 }
-  .steps ul {
-    position: relative; }
-    .steps ul:before {
-      content: "1";
-      font-size: 40px;
-      color: #ccc;
-      font-family: "Poppins-Medium"; }
-    .steps ul:after {
-      content: "/ 4";
-      font-size: 15px;
-      color: #ccc;
-      font-family: "Poppins-Medium";
-      position: absolute;
-      left: 16px;
-      top: 13px;
-      width: 22px; }
-    .steps ul.step-2:before {
-      content: "2"; }
-    .steps ul.step-2:after {
-      left: 31px; }
-    .steps ul.step-3:before {
-      content: "3"; }
-    .steps ul.step-3:after {
-      left: 31px; }
-    .steps ul.step-4:before {
-      content: "4"; }
-    .steps ul.step-4:after {
-      left: 31px; }
-
+.error_border {
+  border-color: #dc3545 !important;
+}
 
 h3 {
   font-family: "Poppins-SemiBold";
@@ -183,69 +141,6 @@ h3 {
   .form-control:focus {
     border-color: #3377c0; }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-
-.grid-item {
-  width: 31.25%;
-  display: flex;
-  margin-bottom: 21px;
-  cursor: pointer; }
-  .grid-item .thumb {
-    width: 86.04%; }
-  .grid-item .heading {
-    width: 13.96%;
-    text-transform: uppercase;
-    font-size: 11px;
-    background: #b3b3b3;
-    color: #fff;
-    font-family: "Poppins-Medium";
-    writing-mode: tb-rl;
-    transform: rotate(-180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    letter-spacing: 1px; }
-  .grid-item.active .heading {
-    background: #3377c0; }
-  .grid-item:hover img {
-    opacity: 0.6; }
-
-.actions ul {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 42px; }
-  .actions ul.mt-7 {
-    margin-top: 7px; }
-.actions li a {
-  border: none;
-  display: inline-flex;
-  height: 42px;
-  width: 112px;
-  align-items: center;
-  color: #fff;
-  cursor: pointer;
-  background: #3377c0;
-  text-transform: uppercase;
-  justify-content: center;
-  letter-spacing: 1px; }
-  .actions li a:hover {
-    background: #3b87d9; }
-.actions li:first-child a {
-  background: none;
-  border: 1px solid #3377c0;
-  color: #3377c0; }
-  .actions li:first-child a:hover {
-    border-color: transparent;
-    color: #fff;
-    background: #3b87d9; }
-.actions li[aria-disabled="true"]:before {
-  content: "Your must fill all fields, to be able to continue"; }
-.actions li[aria-disabled="true"] a {
-  display: none; }
 
 @media (max-width: 767px) {
   body {
@@ -271,22 +166,6 @@ h3 {
       margin-right: 0;
       margin-bottom: 25px; }
 
-  .actions ul {
-    flex-direction: column;
-    align-items: flex-end; }
-    .actions ul li {
-      margin-bottom: 20px; }
-
-  .grid-item {
-    width: 47%;
-    display: block; }
-    .grid-item .thumb {
-      width: 100%; }
-    .grid-item .heading {
-      width: 100%;
-      writing-mode: unset;
-      transform: rotate(0);
-      padding: 10px 0;
-      font-size: 13px; } }
+ }
 
 /*# sourceMappingURL=style.css.map */
