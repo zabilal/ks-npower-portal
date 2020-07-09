@@ -140,9 +140,12 @@
        		$('.certificate').addClass('error_border');
        	}
        });
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> 4074dc3cd05b14ee4e8c126d6d62d6a6606c5ba0
     });
