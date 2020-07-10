@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Cafe | Admin Dashboard </title>
-
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
@@ -15,8 +14,31 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <!-- MATERIAL DESIGN ICONIC FONT -->
+        <link rel="stylesheet" href="custom/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+        <!-- DATE-PICKER -->
+        <link rel="stylesheet" href="custom/vendor/date-picker/css/datepicker.min.css">
+
+        <!-- STYLE CSS -->
+        <link rel="stylesheet" href="custom/css/style.css">
+        <style type="text/css" rel="stylesheet">
+            * {
+                box-sizing: border-box;
+            }
+
+            .wrapper {
+               width: 100%;
+            }
+
+            @media(max-width: 768px) {
+            .form_wrapper section {
+              padding: 1rem;
+            }                 
+            }
+        </style>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -29,7 +51,7 @@
         <a href="index.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -133,17 +155,18 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
       </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="index.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Cafe &mdash; Admin</span>
@@ -176,7 +199,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="signup.html" class="nav-link">
+                <a href="signup.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Cafe</p>
                 </a>
@@ -188,11 +211,11 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="generate_passcode.html" class="nav-link active">
+                <a href="generate_passcode.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Generate Passcode</p>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a href="register.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -269,84 +292,140 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Generate Passcode</h1>
-          </div><!-- /.col -->
+            <h1>Add Cafe</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active">Generate Passcode</li>
+              <li class="breadcrumb-item active">Add Cafe</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="container">
-        <!-- Info boxes -->
-        <div class="row offset-md-3 mt-5">
-          <div class="col-12 col-md-6">
-            <p class="lead">Passcode Generate</p>
-            <form class="mt-4">
-              <div class="form-group">
-                <input type="text" name="" class="form-control" placeholder="Select Local Government">
-              </div>
-              <div class="form-group">
-                <input type="submit" name="submit" class="btn btn-primary" value="Generate Passcode">
-              </div>
+      <div class="container-fluid">
+        <div class="form_wrapper">
+            <form action="">
+                <!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <h3>User profile</h3>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Cafe Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Registrar Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-book"></i>
+                                <input type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Email Address
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-email"></i>
+                                <input type="email" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Phone Number
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Address
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-my-location"></i>
+                                <input type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Local Government
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-home"></i>
+                                <input type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <input type="submit" class="btn btn-primary d-flex justify-content-end ml-auto" name="" value="Proceed">
+                    </div>
+
+                    <div style="margin-top: 2rem" class="text-center">
+                        <p>Already have an Account? <a href="login.html">Login</a></p>
+                    </div>
+
+                </section>
+
+                
+
             </form>
         </div>
         <!-- /.row -->
-
-      </div><!--/. container-fluid -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 <a href="/">Cafe</a>.</strong>
+    All rights reserved.
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="/">Cafe</a>.</strong>
-    All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
+
+
+
+<script src="custom/js/jquery-3.3.1.min.js"></script>
+
+<!-- DATE-PICKER -->
+<script src="custom/vendor/date-picker/js/datepicker.js"></script>
+<script src="custom/vendor/date-picker/js/datepicker.en.js"></script>
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
+<!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-
-<!-- OPTIONAL SCRIPTS -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="plugins/raphael/raphael.min.js"></script>
-<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-
-<!-- PAGE SCRIPTS -->
-<script src="dist/js/pages/dashboard2.js"></script>
 </body>
 </html>
