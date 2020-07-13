@@ -72,48 +72,49 @@
        // FUNCTION TO VALIDATE BIO-DATA
 
        $('#bio_data_validate').click(function(e){
-       	// e.preventDefault();
-       	let first_name = $('.first_name').val();
-       	let middle_name = $('.middle_name').val();
-       	let last_name = $('.last_name').val();
-       	let email = $('.email').val();
-       	let bio_dob = $('.bio_dob').val();
-       	let gender = $('.gender').val();
-       	let phone_number = $('.phone_number').val();
-       	let state_of_residence = $('.state_of_residence').val();
-       	let lga_of_residence = $('.lga_of_residence').val();
-       	let electoral_ward = $('.electoral_ward').val();
-       	let state_of_origin = $('.state_of_origin').val();
-       	let lga_of_origin = $('.lga_of_origin').val();
-       	let residential_address = $('.residential_address').val();
-       	if (first_name !== "" && 
-       		middle_name !== "" && last_name !== "" && 
-       		email !== "" && bio_dob !== "" &&
-       		gender !== "" &&
-       		phone_number !== "" &&
-       		state_of_residence !== "" &&
-       		lga_of_residence !== "" &&
-       		electoral_ward !== "" &&
-       		state_of_origin !== "" &&
-       		lga_of_origin !== "" &&
-       		residential_address !== "") {
-       		next();
-       	}else {
-       		$('.bio_error').text('Please Fill in all fields').css('color','#dc3545');
-	       	$('.first_name').addClass('error_border');
-	       	$('.middle_name').addClass('error_border');
-	       	$('.last_name').addClass('error_border');
-	       	$('.email').addClass('error_border');
-	       	$('.bio_dob').addClass('error_border');
-	       	$('.gender').addClass('error_border');
-	       	$('.phone_number').addClass('error_border');
-	       	$('.state_of_residence').addClass('error_border');
-	       	$('.lga_of_residence').addClass('error_border');
-	       	$('.electoral_ward').addClass('error_border');
-	       	$('.state_of_origin').addClass('error_border');
-	       	$('.lga_of_origin').addClass('error_border');
-	       	$('.residential_address').addClass('error_border');      		
-       	}
+        // e.preventDefault();
+        let first_name = $('.first_name').val();
+        let middle_name = $('.middle_name').val();
+        let last_name = $('.last_name').val();
+        let email = $('.email').val();
+        let bio_dob = $('.bio_dob').val();
+        let gender = $('.gender').val();
+        let phone_number = $('.phone_number').val();
+        let state_of_residence = $('.state_of_residence').val();
+        let lga_of_residence = $('.lga_of_residence').val();
+        let electoral_ward = $('.electoral_ward').val();
+        let state_of_origin = $('.state_of_origin').val();
+        let lga_of_origin = $('.lga_of_origin').val();
+        let residential_address = $('.residential_address').val();
+        if (first_name !== "" && 
+          middle_name !== "" && last_name !== "" && 
+          email !== "" && bio_dob !== "" &&
+          gender !== "" &&
+          phone_number !== "" &&
+          state_of_residence !== "" &&
+          lga_of_residence !== "" &&
+          electoral_ward !== "" &&
+          state_of_origin !== "" &&
+          lga_of_origin !== "" &&
+          residential_address !== "") {
+          next();
+        }else {
+          $('.bio_error').text('Please Fill in all fields').css('color','#dc3545');
+          $('.first_name').addClass('error_border');
+          $('.middle_name').addClass('error_border');
+          $('.last_name').addClass('error_border');
+          $('.email').addClass('error_border');
+          $('.bio_dob').addClass('error_border');
+          $('.gender').addClass('error_border');
+          $('.phone_number').addClass('error_border');
+          $('.state_of_residence').addClass('error_border');
+          $('.lga_of_residence').addClass('error_border');
+          $('.electoral_ward').addClass('error_border');
+          $('.state_of_origin').addClass('error_border');
+          $('.lga_of_origin').addClass('error_border');
+          $('.residential_address').addClass('error_border');
+          $('.postal_code').addClass('error_border');           
+        }
 
        });
        // END OF FUNCTION TO VALIDATE BIO-DATA
@@ -122,32 +123,96 @@
 
 
        $('#education_validate').click(function(){
-       	let education_level = $('.education_level').val();
-       	let year_attended = $('.year_attended').val();
-       	let type_of_institution = $('.type_of_institution').val();
-       	let institution_attended = $('.institution_attended').val();
-       	let course_studied = $('.course_studied').val();
-       	let certificate = $('.certificate').val();
-       	if (education_level !== '' && 
-       		year_attended !== '' && 
-       		type_of_institution !== '' && 
-       		course_studied !== '' &&
-       		certificate !== '') {
-       		next();
-       	}else {
-       		$('.edu_error').text('Please Fill in all fields').css('color','#dc3545');
-       		$('.education_level').addClass('error_border');
-       		$('.year_attended').addClass('error_border');
-       		$('.type_of_institution').addClass('error_border');
-       		$('.institution_attended').addClass('error_border');
-       		$('.course_studied').addClass('error_border');
-       		$('.certificate').addClass('error_border');
-       	}
+        let education_level = $('.education_level').val();
+        let year_attended = $('.year_attended').val();
+        let type_of_institution = $('.type_of_institution').val();
+        let institution_attended = $('.institution_attended').val();
+        let course_studied = $('.course_studied').val();
+        let certificate = $('.certificate').val();
+        
+        if (education_level !== '' && 
+          year_attended !== '' && 
+          type_of_institution !== '' && 
+          course_studied !== '' &&
+          certificate !== '') {
+          next();
+        }else {
+          $('.edu_error').text('Please Fill in all fields').css('color','#dc3545');
+          $('.education_level').addClass('error_border');
+          $('.year_attended').addClass('error_border');
+          $('.type_of_institution').addClass('error_border');
+          $('.institution_attended').addClass('error_border');
+          $('.course_studied').addClass('error_border');
+          $('.certificate').addClass('error_border');
+        }
+
+
        });
 
 
 
+$('.hidden_disability').hide();
+
+$('.disability_yes').change(function(){
+$('.hidden_disability').show();
+});
 
 
+$('.disability_no').change(function(){
+$('.hidden_disability').hide();
+
+});
+// EDUCATION SECTION CODE TO TOGGLE CERTAIN INPUT FIELDS
+
+$('table.table').hide();
+
+$('#confirm_school_no').change(function(){
+
+$('.hidden_confirm').hide();
+$('.edu_error').text('');
+$('#education_validate').click(function(){
+next();  
+})
+  
+})
+
+
+$('#confirm_school_yes').change(function(){
+    $('.hidden_confirm').show();
+
+})
+
+var qualification;
+$('.education_level').change(function(e){
+let options = $('.education_level option');
+
+for(var i=0; i < options.length; i++){
+  qualification = e.target.value;
+}
+var hidden_sec = $('.hidden_for_sec');
+if (qualification == 'Secondary') {
+$('table.table').show(); 
+
+for (var i = 0; i < hidden_sec.length; i++) {
+  hidden_sec[i].style.display = 'none';
+}
+// $('.hidden_for_sec').hide();
+
+}else {
+$('table.table').hide();  
+for (var i = 0; i < hidden_sec.length; i++) {
+  hidden_sec[i].style.display = 'block';
+}
+
+}
+
+});
+
+$('.employment_no').change(function(){
+  $('.earning').hide();
+})
+$('.employment_yes').change(function(){
+  $('.earning').show();  
+});
 
     });

@@ -129,6 +129,7 @@
        	let institution_attended = $('.institution_attended').val();
        	let course_studied = $('.course_studied').val();
        	let certificate = $('.certificate').val();
+        
        	if (education_level !== '' && 
        		year_attended !== '' && 
        		type_of_institution !== '' && 
@@ -144,11 +145,74 @@
        		$('.course_studied').addClass('error_border');
        		$('.certificate').addClass('error_border');
        	}
+
+
        });
 
 
 
+$('.hidden_disability').hide();
+
+$('.disability_yes').change(function(){
+$('.hidden_disability').show();
+});
 
 
+$('.disability_no').change(function(){
+$('.hidden_disability').hide();
+
+});
+// EDUCATION SECTION CODE TO TOGGLE CERTAIN INPUT FIELDS
+
+$('table.table').hide();
+
+$('#confirm_school_no').change(function(){
+
+$('.hidden_confirm').hide();
+$('.edu_error').text('');
+$('#education_validate').click(function(){
+next();  
+})
+  
+})
+
+
+$('#confirm_school_yes').change(function(){
+    $('.hidden_confirm').show();
+
+})
+
+var qualification;
+$('.education_level').change(function(e){
+let options = $('.education_level option');
+
+for(var i=0; i < options.length; i++){
+  qualification = e.target.value;
+}
+var hidden_sec = $('.hidden_for_sec');
+if (qualification == 'Secondary') {
+$('table.table').show(); 
+
+for (var i = 0; i < hidden_sec.length; i++) {
+  hidden_sec[i].style.display = 'none';
+}
+// $('.hidden_for_sec').hide();
+
+}else {
+$('table.table').hide();  
+for (var i = 0; i < hidden_sec.length; i++) {
+  hidden_sec[i].style.display = 'block';
+}
+
+}
+
+});
+
+$('.employment_no').change(function(){
+  $('.earning').hide();
+})
+$('.employment_yes').change(function(){
+  $('.earning').show();  
+});
 
     });

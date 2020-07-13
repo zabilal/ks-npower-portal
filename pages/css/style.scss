@@ -41,9 +41,6 @@ select {
 	-moz-appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
-    option[value=""][disabled] {
- 		display: none;
- 	}
 }
 p, h1, h2, h3, h4, h5, h6, ul {
 	margin: 0;
