@@ -1,58 +1,180 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--	<head>-->
+<!--		<meta charset="utf-8">-->
+<!--		<title>Cafe - Signup</title>-->
+<!--		<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+<!--		&lt;!&ndash; MATERIAL DESIGN ICONIC FONT &ndash;&gt;-->
+<!--		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">-->
+
+<!--		&lt;!&ndash; DATE-PICKER &ndash;&gt;-->
+<!--		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">-->
+
+<!--		&lt;!&ndash; STYLE CSS &ndash;&gt;-->
+<!--		<link rel="stylesheet" href="css/style.css">-->
+<!--        <style type="text/css" rel="stylesheet">-->
+<!--            * {-->
+<!--                box-sizing: border-box;-->
+<!--            }-->
+<!--            body {-->
+<!--                background: lightgrey;-->
+<!--                display: flex;-->
+<!--                justify-content: center;-->
+<!--                align-items: center;-->
+<!--                height: 100vh;-->
+<!--            }-->
+<!--            .wrapper {-->
+<!--                padding: 4rem;-->
+<!--                background: white;-->
+<!--            }-->
+<!--            .wrapper .btn {-->
+<!--              border: none;-->
+<!--              display: block;-->
+<!--              height: 42px;-->
+<!--              width: 25%;-->
+<!--              color: #fff;-->
+<!--              cursor: pointer;-->
+<!--              background: #3377c0;-->
+<!--              text-transform: uppercase;-->
+<!--              text-align: center;-->
+<!--              padding: 0.5rem 2rem;-->
+<!--              float: right;-->
+<!--            } -->
+<!--            .wrapper .form-holder {-->
+<!--                margin: 2rem 0px;-->
+<!--            }-->
+<!--            .wrapper .btn_container {-->
+<!--                display: flex;-->
+<!--                justify-content: flex-end;-->
+<!--                align-items: center;-->
+<!--            }-->
+<!--            .forgot_pass {-->
+<!--                float: right;-->
+<!--            }-->
+<!--            @media(max-width: 768px) {-->
+<!--            .wrapper {-->
+<!--                padding-top: 40%;-->
+<!--                width: 100%;-->
+<!--                height: 100vh;-->
+<!--            }-->
+<!--            .forgot_pass {-->
+<!--                float: none;-->
+<!--            }-->
+<!--            .wrapper .btn {-->
+<!--              width: 50%;-->
+<!--              float: none;-->
+<!--            }                 -->
+<!--            }-->
+<!--        </style>-->
+<!--	</head>-->
+<!--	<body>-->
+<!--		<div class="wrapper">-->
+<!--            <form action="">-->
+<!--        		&lt;!&ndash; SECTION 1 &ndash;&gt;-->
+<!--                <h4></h4>-->
+<!--                <section>-->
+<!--                    <h3>Cafe Login</h3>-->
+
+<!--                <div class="form-holder">-->
+<!--                    <i class="zmdi zmdi-email"></i>-->
+<!--                    <input type="text" class="form-control" placeholder="Email" required="required">-->
+<!--                </div>-->
+<!--            -->
+<!--                <div class="form-holder">-->
+<!--                    <i class="zmdi zmdi-key"></i>-->
+<!--                    <input type="text" class="form-control" placeholder="Password" required="required">-->
+<!--                </div>  -->
+
+<!--                    <div class="form-row">-->
+<!--                        <div class="form-col">-->
+<!--                           <p>Don't have an Account? <a href="signup.html">Create Account</a></p>-->
+<!--                        </div>-->
+<!--                        <div class="form-col">-->
+<!--                            <div>-->
+<!--                              <a href="" class="forgot_pass">Forgot Password?</a>  -->
+<!--                            </div>-->
+<!--                            -->
+<!--                        </div>-->
+<!--                    </div>           -->
+<!--                    <div class="btn_container">-->
+<!--                        <input type="submit" class="btn" name="" value="Login">-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--                -->
+
+<!--            </form>-->
+<!--		</div>-->
+
+<!--		<script src="js/jquery-3.3.1.min.js"></script>-->
+
+
+<!--		&lt;!&ndash; DATE-PICKER &ndash;&gt;-->
+<!--		<script src="vendor/date-picker/js/datepicker.js"></script>-->
+<!--		<script src="vendor/date-picker/js/datepicker.en.js"></script>-->
+
+
+
+<!--</body>-->
+<!--</html>
+
+-->
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Cafe - Signup</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <title>Cafe - Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 
-		<!-- DATE-PICKER -->
-		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
 
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/style.css">
-        <style type="text/css" rel="stylesheet">
-            * {
-                box-sizing: border-box;
-            }
-            body {
-                background: lightgrey;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            .wrapper {
-                padding: 4rem;
-                background: white;
-            }
-            .wrapper .btn {
-              border: none;
-              display: block;
-              height: 42px;
-              width: 25%;
-              color: #fff;
-              cursor: pointer;
-              background: #3377c0;
-              text-transform: uppercase;
-              text-align: center;
-              padding: 0.5rem 2rem;
-              float: right;
-            } 
-            .wrapper .form-holder {
-                margin: 2rem 0px;
-            }
-            .wrapper .btn_container {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-            }
-            .forgot_pass {
-                float: right;
-            }
-            @media(max-width: 768px) {
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css" rel="stylesheet">
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .wrapper {
+            padding: 4rem;
+            background: white;
+        }
+        .wrapper .btn {
+            border: none;
+            display: block;
+            height: 42px;
+            width: 25%;
+            color: #fff;
+            cursor: pointer;
+            background: #3377c0;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.5rem 2rem;
+            float: right;
+        }
+        .wrapper .form-holder {
+            margin: 2rem 0px;
+        }
+        .wrapper .btn_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .forgot_pass {
+            float: right;
+        }
+        @media(max-width: 768px) {
             .wrapper {
                 padding-top: 40%;
                 width: 100%;
@@ -62,55 +184,57 @@
                 float: none;
             }
             .wrapper .btn {
-              width: 50%;
-              float: none;
-            }                 
+                width: 50%;
+                float: none;
             }
-        </style>
-	</head>
-	<body>
-		<div class="wrapper">
-            <form action="">
-        		<!-- SECTION 1 -->
-                <h4></h4>
-                <section>
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <form  id="login-form" action="">
+        <!-- SECTION 1 -->
+        <h4></h4>
+        <section>
+            <h3>N-SIP Centre Login</h3>
 
-                <div class="form-holder">
-                    <i class="zmdi zmdi-email"></i>
-                    <input type="text" class="form-control" placeholder="Email" required="required">
+            <div class="form-holder">
+                <i class="zmdi zmdi-email"></i>
+                <input type="text" class="form-control" placeholder="Email" name="cafeEmailAddress">
+            </div>
+
+            <div class="form-holder">
+                <i class="zmdi zmdi-key"></i>
+                <input type="password" class="form-control" placeholder="Password" name="cafePassCode">
+            </div>
+
+            <div class="form-row">
+                <div class="form-col">
+                    <p>Don't have an Account? <a href="signup.html">Create Account</a></p>
                 </div>
-            
-                <div class="form-holder">
-                    <i class="zmdi zmdi-key"></i>
-                    <input type="text" class="form-control" placeholder="Password" required="required">
-                </div>  
-
-                    <div class="form-row">
-                        <div class="form-col">
-                           <p>Don't have an Account? <a href="signup.html">Create Account</a></p>
-                        </div>
-                        <div class="form-col">
-                            <div>
-                              <a href="" class="forgot_pass">Forgot Password?</a>  
-                            </div>
-                            
-                        </div>
-                    </div>           
-                    <div class="btn_container">
-                        <input type="submit" class="btn" name="" value="Login">
+                <div class="form-col">
+                    <div>
+                        <a href="" class="forgot_pass">Forgot Password?</a>
                     </div>
-                </section>
-                
 
-            </form>
-		</div>
+                </div>
+            </div>
+            <div class="btn_container">
+                <input type="submit" class="btn" id="login-submit" name="" value="Login">
+            </div>
+        </section>
 
-		<script src="js/jquery-3.3.1.min.js"></script>
+
+    </form>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="../js/kscontrol.js"></script>
 
 
-		<!-- DATE-PICKER -->
-		<script src="vendor/date-picker/js/datepicker.js"></script>
-		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+<!-- DATE-PICKER -->
+<script src="vendor/date-picker/js/datepicker.js"></script>
+<script src="vendor/date-picker/js/datepicker.en.js"></script>
 
 
 

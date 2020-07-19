@@ -1,142 +1,365 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--	<head>-->
+<!--		<meta charset="utf-8">-->
+<!--		<title>Cafe - Signup</title>-->
+<!--		<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+<!--		&lt;!&ndash; MATERIAL DESIGN ICONIC FONT &ndash;&gt;-->
+<!--		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">-->
+
+<!--		&lt;!&ndash; DATE-PICKER &ndash;&gt;-->
+<!--		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">-->
+
+<!--		&lt;!&ndash; STYLE CSS &ndash;&gt;-->
+<!--		<link rel="stylesheet" href="css/style.css">-->
+<!--        <style type="text/css" rel="stylesheet">-->
+<!--            * {-->
+<!--                box-sizing: border-box;-->
+<!--            }-->
+<!--            body {-->
+<!--                background: lightgrey;-->
+<!--                display: flex;-->
+<!--                justify-content: center;-->
+<!--                align-items: center;-->
+<!--                height: 100vh;-->
+<!--            }-->
+<!--            .wrapper {-->
+<!--                padding: 2rem 4rem;-->
+<!--                background: white;-->
+<!--            }-->
+<!--            .wrapper .btn {-->
+<!--              border: none;-->
+<!--              display: block;-->
+<!--              height: 42px;-->
+<!--              width: 25%;-->
+<!--              color: #fff;-->
+<!--              cursor: pointer;-->
+<!--              background: #3377c0;-->
+<!--              text-transform: uppercase;-->
+<!--              text-align: center;-->
+<!--              padding: 0.5rem 2rem;-->
+<!--              margin: 2rem 0px;-->
+<!--              float: right;-->
+<!--            } -->
+<!--            @media(max-width: 768px) {-->
+<!--            .wrapper .btn {-->
+<!--              width: 50%;-->
+<!--              float: none;-->
+<!--            }                 -->
+<!--            }-->
+<!--        </style>-->
+<!--	</head>-->
+<!--	<body>-->
+<!--		<div class="wrapper">-->
+<!--            <form action="">-->
+<!--        		&lt;!&ndash; SECTION 1 &ndash;&gt;-->
+<!--                <h4></h4>-->
+<!--                <section>-->
+<!--                    <h3>User profile</h3>-->
+<!--                	<div class="form-row">-->
+<!--                        <div class="form-col">-->
+<!--                            <label for="">-->
+<!--                                Cafe Name-->
+<!--                            </label>-->
+<!--                            <div class="form-holder">-->
+<!--                                <i class="zmdi zmdi-account-o"></i>-->
+<!--                                <input type="text" class="form-control" required="required">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-col">-->
+<!--                            <label for="">-->
+<!--                                Registrar Name-->
+<!--                            </label>-->
+<!--                            <div class="form-holder">-->
+<!--                                <i class="zmdi zmdi-book"></i>-->
+<!--                                <input type="text" class="form-control" required="required">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                	</div>-->
+<!--                    <div class="form-row">-->
+<!--                        <div class="form-col">-->
+<!--                            <label for="">-->
+<!--                                Email Address-->
+<!--                            </label>-->
+<!--                            <div class="form-holder">-->
+<!--                                <i class="zmdi zmdi-email"></i>-->
+<!--                                <input type="email" class="form-control" required="required">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-col">-->
+<!--                            <label for="">-->
+<!--                                Phone Number-->
+<!--                            </label>-->
+<!--                            <div class="form-holder">-->
+<!--                                <i class="zmdi zmdi-smartphone-android"></i>-->
+<!--                                <input type="text" class="form-control" required="required">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-row">-->
+<!--                        <div class="form-col">-->
+<!--                            <label for="">-->
+<!--                                Address-->
+<!--                            </label>-->
+<!--                            <div class="form-holder">-->
+<!--                                <i class="zmdi zmdi-my-location"></i>-->
+<!--                                <input type="text" class="form-control" required="required">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-col">-->
+<!--                            <label for="">-->
+<!--                                Local Government-->
+<!--                            </label>-->
+<!--                            <div class="form-holder">-->
+<!--                                <i class="zmdi zmdi-home"></i>-->
+<!--                                <input type="text" class="form-control" required="required">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    -->
+<!--                    <div>-->
+<!--                        <input type="submit" class="btn" name="" value="Proceed">-->
+<!--                    </div>-->
+
+<!--                    <div style="margin-top: 2rem">-->
+<!--                        <p>Already have an Account? <a href="login.html">Login</a></p>-->
+<!--                    </div>-->
+
+<!--                </section>-->
+
+<!--                -->
+
+<!--            </form>-->
+<!--		</div>-->
+
+<!--		<script src="js/jquery-3.3.1.min.js"></script>-->
+
+
+<!--		&lt;!&ndash; DATE-PICKER &ndash;&gt;-->
+<!--		<script src="vendor/date-picker/js/datepicker.js"></script>-->
+<!--		<script src="vendor/date-picker/js/datepicker.en.js"></script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Cafe - Signup</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <title>Cafe - Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 
-		<!-- DATE-PICKER -->
-		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
 
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/style.css">
-        <style type="text/css" rel="stylesheet">
-            * {
-                box-sizing: border-box;
-            }
-            body {
-                background: lightgrey;
-            }
-            .wrapper {
-                padding: 2rem 4rem;
-                background: white;
-            }
+    <!-- STYLE CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css" rel="stylesheet">
+        * {
+            box-sizing: border-box;
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            /*height: 100vh;*/
+        }
+
+        body {
+            background: lightgrey;
+        }
+
+        .wrapper {
+            padding: 2rem 4rem;
+            background: white;
+        }
+
+        .wrapper .btn {
+            border: none;
+            display: block;
+            height: 42px;
+            width: 25%;
+            color: #fff;
+            cursor: pointer;
+            background: #3377c0;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.5rem 2rem;
+            margin: 2rem 0px;
+            float: right;
+        }
+
+        @media (max-width: 768px) {
             .wrapper .btn {
-              border: none;
-              display: block;
-              height: 42px;
-              width: 25%;
-              color: #fff;
-              cursor: pointer;
-              background: #3377c0;
-              text-transform: uppercase;
-              text-align: center;
-              padding: 0.5rem 2rem;
-              margin: 2rem 0px;
-              float: right;
-            } 
-            @media(max-width: 768px) {
-            .wrapper .btn {
-              width: 50%;
-              float: none;
-            }                 
+                width: 50%;
+                float: none;
             }
-        </style>
-	</head>
-	<body>
-		<div class="wrapper">
-            <form action="">
-        		<!-- SECTION 1 -->
-                <h4></h4>
-                <section>
-                    <h3>User profile</h3>
-                	<div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Cafe Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" required="required">
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Registrar Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-book"></i>
-                                <input type="text" class="form-control" required="required">
-                            </div>
-                        </div>
-                	</div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Email Address
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-email"></i>
-                                <input type="email" class="form-control" required="required">
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Phone Number
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-smartphone-android"></i>
-                                <input type="text" class="form-control" required="required">
-                            </div>
-                        </div>
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <form class="form" id="sigunp-form">
+        <!-- SECTION 1 -->
+        <h4></h4>
+        <section>
+            <h3>N-SIP Centre Profile</h3>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="">
+                        Centre Name
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-account-o"></i>
+                        <input type="text" class="form-control" name="cafeName">
                     </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Address
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-my-location"></i>
-                                <input type="text" class="form-control" required="required">
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Local Government
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" required="required">
-                            </div>
-                        </div>
+                </div>
+                <div class="form-col">
+                    <label for="">
+                        Contact Person
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-account-o"></i>
+                        <input type="text" class="form-control" name="cafeContactPerson">
                     </div>
-                    
-                    <div>
-                        <input type="submit" class="btn" name="" value="Proceed">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="">
+                        Email Address
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-email"></i>
+                        <input type="email" class="form-control" name="cafeEmailAddress">
                     </div>
-
-                    <div style="margin-top: 2rem">
-                        <p>Already have an Account? <a href="login.html">Login</a></p>
+                </div>
+                <div class="form-col">
+                    <label for="">
+                        Phone Number
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-smartphone-android"></i>
+                        <input type="text" class="form-control" name="cafePhoneNumber">
                     </div>
+                </div>
+            </div>
 
-                </section>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="">
+                        Password
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-shield-security"></i>
+                        <input type="password" class="form-control" name="cafePassCode">
+                    </div>
+                </div>
+                <div class="form-col">
+                    <label for="">
+                        Confirm Password
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-shield-security"></i>
+                        <input type="password" class="form-control" name="cafePassCode">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="">
+                        Address
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-my-location"></i>
+                        <input type="text" class="form-control" name="cafeAddress">
+                    </div>
+                </div>
+                <div class="form-col">
+                    <label for="">
+                        Local Government
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <!--                        <select name="residence_lga" title="LGA of Residence (Where you live)" class="form-control">-->
+                        <select name="cafeLga" title="LGA of Residence (Where you live)" class="form-control">
+                            <option value="">Select</option>
+                            <option value="Ajingi">Ajingi</option>
+                            <option value="Albasu">Albasu</option>
+                            <option value="Bagwai">Bagwai</option>
+                            <option value="Bebeji">Bebeji</option>
+                            <option value="Bichi">Bichi</option>
+                            <option value="Bunkure">Bunkure</option>
+                            <option value="Dala">Dala</option>
+                            <option value="Dambatta">Dambatta</option>
+                            <option value="Dawakin Kudu">Dawakin Kudu</option>
+                            <option value="Dawakin Tofa">Dawakin Tofa</option>
+                            <option value="Doguwa">Doguwa</option>
+                            <option value="Fagge">Fagge</option>
+                            <option value="Gabasawa">Gabasawa</option>
+                            <option value="Garko">Garko</option>
+                            <option value="Garun Mallam">Garun Mallam</option>
+                            <option value="Gaya">Gaya</option>
+                            <option value="Gezawa">Gezawa</option>
+                            <option value="Gwale">Gwale</option>
+                            <option value="Gwarzo">Gwarzo</option>
+                            <option value="Kabo">Kabo</option>
+                            <option value="Kano Municipal">Kano Municipal</option>
+                            <option value="Karaye">Karaye</option>
+                            <option value="Kibiya">Kibiya</option>
+                            <option value="Kiru">Kiru</option>
+                            <option value="Kumbotso">Kumbotso</option>
+                            <option value="Kunchi">Kunchi</option>
+                            <option value="Kura">Kura</option>
+                            <option value="Madobi">Madobi</option>
+                            <option value="Makoda">Makoda</option>
+                            <option value="Minjibir">Minjibir</option>
+                            <option value="Nasarawa">Nasarawa</option>
+                            <option value="Rano">Rano</option>
+                            <option value="Rimin Gado">Rimin Gado</option>
+                            <option value="Rogo">Rogo</option>
+                            <option value="Shanono">Shanono</option>
+                            <option value="Sumaila">Sumaila</option>
+                            <option value="Takai">Takai</option>
+                            <option value="Tarauni">Tarauni</option>
+                            <option value="Tofa">Tofa</option>
+                            <option value="Tsanyawa">Tsanyawa</option>
+                            <option value="Tudun Wada">Tudun Wada</option>
+                            <option value="Ungogo">Ungogo</option>
+                            <option value="Warawa">Warawa</option>
+                            <option value="Wudil">Wudil</option>
+                        </select>
+                        <!--                        <input type="text" class="form-control">-->
+                    </div>
+                </div>
+            </div>
 
-                
+            <div>
+                <input type="submit" class="btn" id="submit" name="" value="Proceed">
+            </div>
 
-            </form>
-		</div>
+            <div style="margin-top: 2rem">
+                <p>Already have an Account? <a href="login.html">Login</a></p>
+            </div>
 
-		<script src="js/jquery-3.3.1.min.js"></script>
-
-
-		<!-- DATE-PICKER -->
-		<script src="vendor/date-picker/js/datepicker.js"></script>
-		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+        </section>
 
 
+    </form>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script src="../js/kscontrol.js"></script>
+
+
+<!-- DATE-PICKER -->
+<script src="vendor/date-picker/js/datepicker.js"></script>
+<script src="vendor/date-picker/js/datepicker.en.js"></script>
 
 </body>
 </html>
