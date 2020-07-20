@@ -8,6 +8,11 @@ $(document).ready(function () {
             section[i].style.display = 'none';
 
         }
+        if (counter == 0) {
+          document.querySelector('.wrapper').classList.add('translate_first');
+        }else {
+          document.querySelector('.wrapper').classList.remove('translate_first');
+        }
         section[counter].style.display = 'block';
     }
 
