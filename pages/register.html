@@ -48,6 +48,7 @@
             background: lightgrey;
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
 
@@ -86,9 +87,37 @@
         .translate_first {
             transform: translateY(50%);
         }
+        header.header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem auto;
+            margin-top: 0;
+            background: #7fff00;
+        }
+         header.header h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: bolder;
+            text-transform: capitalize;
+         }
+         .logout_btn {
+            background: rgb(204, 41, 0);
+            text-transform: capitalize;
+         }
     </style>
 </head>
 <body>
+<header class="header">
+    <h3>N-SIP CENTER: <span id="dynamic_text"></span></h3>
+    <div>
+        <a href="" class="btn logout_btn">Logout</a>
+    </div>
+</header>
 <div class="wrapper">
     <form action="" id="wizard">
         <!-- SECTION 1 BVN SECTION -->
