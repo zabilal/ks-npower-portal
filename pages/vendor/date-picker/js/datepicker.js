@@ -49,7 +49,7 @@
             clearButton: false,
 
             showEvent: 'focus',
-            autoClose: false,
+            autoClose: true,
 
             // navigation
             monthsField: 'monthsShort',
