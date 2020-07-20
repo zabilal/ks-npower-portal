@@ -112,8 +112,7 @@
           $('.electoral_ward').addClass('error_border');
           $('.state_of_origin').addClass('error_border');
           $('.lga_of_origin').addClass('error_border');
-          $('.residential_address').addClass('error_border');
-          $('.postal_code').addClass('error_border');           
+          $('.residential_address').addClass('error_border');           
         }
 
        });

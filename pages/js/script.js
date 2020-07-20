@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 
 
-    
+
 
     // $('.next_btn').click(function(e){
 
@@ -126,7 +126,7 @@ $(document).ready(function () {
             $('.state_of_origin').addClass('error_border');
             $('.lga_of_origin').addClass('error_border');
             $('.residential_address').addClass('error_border');
-            $('.postal_code').addClass('error_border');
+
         }
 
     });
