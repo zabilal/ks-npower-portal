@@ -382,7 +382,27 @@ $.ajax({
     $('tbody').html(output);
 $('table.table').DataTable({
   dom:'Blfrtip',
-  buttons:['pdf','excel','csv','copy']
+  buttons: {
+    buttons:[{
+      extend: 'excel',
+      text: '<i class="fa fa-file-excel mr-1"></i> Excel'
+    },
+{
+      extend: 'pdf',
+      text: '<i class="fa fa-file-pdf"></i> PDF',
+      orientation: 'landscape'
+    },
+{
+      extend: 'copy',
+      text: '<i class="fa fa-copy"></i> Copy'
+    },
+{
+      extend: 'csv',
+      text: '<i class="fa fa-file"></i> CSV'
+    }
+
+    ]
+  }
 });
   }
 })
