@@ -291,69 +291,30 @@
 
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <div class="container"></div>
 
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap table-responsive">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+                      <th>Passcode</th>
+                      <th>Name</th>
+                      <th>Contact Person</th>
+                      <th>Email</th>
+                      <th>Phone Number</th>
+                      <th>Address</th>
+                      <th>LGA</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+                         
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-          </div>
-        </div>
+
 
         <!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -382,5 +343,52 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="plugins/datatables-buttons/js/jszip.min.js"></script>
+<script type="text/javascript" src="plugins/datatables-buttons/js/pdfmake.min.js"></script>
+<script type="text/javascript" src="plugins/datatables-buttons/js/vfs_fonts.js"></script>
+<script type="text/javascript" src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<!-- <script type="text/javascript" src="../js/jquery.ajax-cross-origin.min.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+$.ajax({
+  url:'http://n-sipkano.com/ks-api/v1/candidates',
+  method:'GET',
+  // crossOrigin: true,
+  dataType: 'json',
+  success:function(response){
+    console.log(response);
+    var output;
+    for (var i = 0; i < response.length; i++) {
+      console.log(response[i]);
+      // for(item in response[i]) {
+        // console.log(response[i].id);
+        output += `<tr>
+                      <td>${response[i].id}</td>
+                      <td>${response[i].cafePassCode}</td>
+                      <td>${response[i].cafeName}</td>
+                      <td>${response[i].cafeContactPerson}</td>
+                      <td>${response[i].cafeEmailAddress}</td>
+                      <td>${response[i].cafePhoneNumber}</td>                     
+                      <td>${response[i].cafeAddress}</td>                     
+                      <td>${response[i].cafeLga}</td>                     
+                    </tr>`;
+      // }
+      
+    }
+    $('tbody').html(output);
+$('table.table').DataTable({
+  dom:'Blfrtip',
+  buttons:['pdf','excel','csv','copy']
+});
+  }
+})
+
+
+}); 
+</script>
 </body>
 </html>
