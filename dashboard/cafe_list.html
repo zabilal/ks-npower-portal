@@ -364,15 +364,10 @@ $(document).ready(function(){
 $.ajax({
   url:'http://n-sipkano.com/ks-api/v1/cafes',
   method:'GET',
-  // crossOrigin: true,
   dataType: 'json',
   success:function(response){
-    console.log(response);
     var output;
     for (var i = 0; i < response.length; i++) {
-      console.log(response[i]);
-      // for(item in response[i]) {
-        // console.log(response[i].id);
         output += `<tr>
                       <td>${response[i].id}</td>
                       <td>${response[i].cafePassCode}</td>
