@@ -367,6 +367,7 @@ $.ajax({
   dataType: 'json',
   success:function(response){
     var output;
+    console.log(response);
     for (var i = 0; i < response.length; i++) {
         output += `<tr>
                       <td>${response[i].id}</td>

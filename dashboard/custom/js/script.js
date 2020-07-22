@@ -25,21 +25,17 @@
         }
         reset();
        }
-       // $('.next_btn').click(function(e){
+       $('.next_btn').click(function(e){
          
-       //      e.preventDefault();
-       //      next();
-       // });
+            e.preventDefault();
+            next();
+       });
        $('.previous_btn').click(function(e){
         e.preventDefault();
         previous();
        });
 
 
-       $('#hidden_file_link').click(function(e){
-        e.preventDefault();
-        $('#hidden_file').click();
-       })
 
        // VALIDATION FUNCTIONS
 
@@ -47,7 +43,7 @@
        // FUNCTION TO VALIDATE USER IDENTITY
 
        $('#validate_id').click(function(e){
-        // e.preventDefault();
+        e.preventDefault();
         // alert('click');
             $('.dob_text').text('');
             $('.bvn_text').text('');
@@ -72,7 +68,7 @@
        // FUNCTION TO VALIDATE BIO-DATA
 
        $('#bio_data_validate').click(function(e){
-        // e.preventDefault();
+        e.preventDefault();
         let first_name = $('.first_name').val();
         let middle_name = $('.middle_name').val();
         let last_name = $('.last_name').val();

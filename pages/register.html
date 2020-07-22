@@ -151,7 +151,7 @@
             </div>
             <div class="btn_container">
 
-                <input type="submit" class="btn next_btn" id="validate_id" name="" value="Next">
+                <button class="btn" id="validate_id" type="button">Next</button>
 
             </div>
 
@@ -215,7 +215,7 @@
                     <div class="form-holder">
                         <i class="zmdi zmdi-calendar"></i>
                         <input name="dob" type="text" class="form-control datepicker-here bio_dob" data-language='en'
-                               data-date-format="dd - mm - yyyy" id="dp1" required="required">
+                               data-date-format="dd - mm - yyyy" id="dp2" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -453,7 +453,7 @@
 
             <div class="btn_container" style="justify-content: space-between;">
                 <button class="btn previous_btn">Previous</button>
-                <input type="submit" class="btn next_btn" id="bio_data_validate" name="" value="Next">
+                <button type="button" class="btn" id="bio_data_validate" >Next</button>
 
             </div>
         </section>
@@ -962,11 +962,13 @@
                     <div class="form-holder">
                         <input type="file" class="form-control certificate" required="required">
                         <hr>
-                        <input type="file" id="hidden_file" style="display: none;">
-                        <p><strong><a href="#" style="color: darkgreen" id="hidden_file_link">Add additional
-                            Certificate</a></strong></p>
-                    </div>
-                </div>
+                      <label for="">
+                        Add additional Certificate
+                    </label>
+                        <input type="file" class="form-control certificate">
+                        
+                    </div> 
+                    </div> 
 
                 <br>
                 <br>
@@ -985,7 +987,7 @@
                 <input type="radio" value="N-Creative" name="program">N-Creative <br>
                 <div class="btn_container" style="justify-content: space-between;">
                     <button class="btn previous_btn">Previous</button>
-                    <input type="submit" class="btn next_btn" id="education_validate" name="" value="Next">
+                    <button type="button" class="btn" id="education_validate">Next</button>
 
 
                 </div>
@@ -1097,7 +1099,7 @@
 
             <div class="btn_container" style="justify-content: space-between;">
                 <button class="btn previous_btn">Previous</button>
-                <input type="submit" name="submit" value="Submit" class="btn">
+                <button type="button" class="btn next_btn" >Next</button>
 
             </div>
         </section>
