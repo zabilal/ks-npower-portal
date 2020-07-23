@@ -58,6 +58,44 @@ $(document).ready(function () {
     });
 
 
+    // Confirm submission for Register
+    $('#confirm_btn').click(function (event) {
+        var formJqObj = $("#wizard");
+        var formDataObj = {};
+        (function () {
+            formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
+                var thisInput = $(this);
+                formDataObj[thisInput.attr("name")] = thisInput.val();
+            });
+        })();
+
+        $.ajax({
+            type: "POST",
+            url: hostname + '/ks-api/v1//candidate',
+            data: JSON.stringify(formDataObj),
+            contentType: "application/json",
+            beforeSend:function(){
+                $('#confirm_btn').attr('disabled','disabled');
+                $('.loader_container').show();
+            },
+            complete:function(){
+                $('#confirm_btn').attr('disabled',null);
+                $('.loader_container').hide();
+            }
+        })
+
+            .done(function (data, textStatus, jqXHR) {
+                console.log("Ajax completed: " + data);
+                window.location.href = 'success.html';
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log("Ajax problem: " + textStatus + ". " + errorThrown);
+            });
+        event.preventDefault();
+    });
+
+
+
     // Preview Data script
 
     $("#btn_review").click(function (event) {

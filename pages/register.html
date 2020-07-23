@@ -125,6 +125,38 @@
             color: black;
             opacity: 0.8;
          }
+
+        /*Loader*/
+        .lds-dual-ring {
+          display: inline-block;
+          width: 64px;
+          height: 64px;
+        }
+        .lds-dual-ring:after {
+          content: " ";
+          display: block;
+          width: 46px;
+          height: 46px;
+          margin: 1px;
+          border-radius: 50%;
+          border: 5px solid #3377c0;
+          border-color: #3377c0 transparent #3377c0 transparent;
+          animation: lds-dual-ring 1.2s linear infinite;
+        }
+        @keyframes lds-dual-ring {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        .loader_container {
+            display: none;
+        }
+        .loader_container p {
+            color: #3377c0;
+        }
     </style>
 </head>
 <body>
@@ -1171,6 +1203,11 @@
         <section>
             <h3 style="margin-bottom: 37px;">Review and submit</h3>
             <div class="review"></div>
+
+               <div class="loader_container">
+                <div class="lds-dual-ring"></div>
+                <p><strong>Please Wait...</strong></p>
+                </div>
 
             <div class="btn_container">
             <button class="btn previous_btn">Previous</button>
