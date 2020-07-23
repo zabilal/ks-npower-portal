@@ -45,6 +45,14 @@ $(document).ready(function () {
     });
     $('.previous_btn').click(function (e) {
         e.preventDefault();
+        $('.dob_text').text('');
+        $('.bvn_text').text('');
+        $('.form_serial').text('');
+        $('#bvn_number').removeClass('error_border');
+        $('.dob').removeClass('error_border');
+        $('.form_serial').removeClass('error_border');
+        $('.bio_error').text('').css('color', '');
+        $('.edu_error').text('').css('color', '');
         previous();
     });
 
