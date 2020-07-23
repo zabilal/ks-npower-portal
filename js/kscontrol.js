@@ -36,8 +36,17 @@ $(document).ready(function () {
             type: "POST",
             url: hostname + '/ks-api/v1/cafes',
             data: JSON.stringify(formDataObj),
-            contentType: "application/json"
+            contentType: "application/json",
+            beforeSend:function(){
+                $('#submit').attr('disabled','disabled');
+                $('.loader_container').show();
+            },
+            complete:function(){
+                $('#submit').attr('disabled',null);
+                $('.loader_container').hide();
+            }
         })
+
             .done(function (data, textStatus, jqXHR) {
                 console.log("Ajax completed: " + data);
                 window.location.href = 'success.html';
