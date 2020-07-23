@@ -73,9 +73,9 @@ $(document).ready(function () {
             $('#bvn_number').removeClass('error_border');
             $('.dob').removeClass('error_border');
             $('.form_serial').removeClass('error_border');
-        let bvn_number = $('#bvn_number').val();
-        let dob = $('.dob').val();
-        let form_serial = $('.form_serial').val();
+        let bvn_number = $('#bvn_number').val().trim();
+        let dob = $('.dob').val().trim();
+        let form_serial = $('.form_serial').val().trim();
         if (bvn_number !== '' && dob !== '' && form_serial !== '') {
             next();
         }else {
@@ -95,19 +95,19 @@ $(document).ready(function () {
 
     $('#bio_data_validate').click(function (e) {
         e.preventDefault();
-        let first_name = $('.first_name').val();
-        let middle_name = $('.middle_name').val();
-        let last_name = $('.last_name').val();
-        let email = $('.email').val();
-        let bio_dob = $('.bio_dob').val();
-        let gender = $('.gender').val();
-        let phone_number = $('.phone_number').val();
-        let state_of_residence = $('.state_of_residence').val();
-        let lga_of_residence = $('.lga_of_residence').val();
-        let electoral_ward = $('.electoral_ward').val();
-        let state_of_origin = $('.state_of_origin').val();
-        let lga_of_origin = $('.lga_of_origin').val();
-        let residential_address = $('.residential_address').val();
+        let first_name = $('.first_name').val().trim();
+        let middle_name = $('.middle_name').val().trim();
+        let last_name = $('.last_name').val().trim();
+        let email = $('.email').val().trim();
+        let bio_dob = $('.bio_dob').val().trim();
+        let gender = $('.gender').val().trim();
+        let phone_number = $('.phone_number').val().trim();
+        let state_of_residence = $('.state_of_residence').val().trim();
+        let lga_of_residence = $('.lga_of_residence').val().trim();
+        let electoral_ward = $('.electoral_ward').val().trim();
+        let state_of_origin = $('.state_of_origin').val().trim();
+        let lga_of_origin = $('.lga_of_origin').val().trim();
+        let residential_address = $('.residential_address').val().trim();
         if (first_name !== "" &&
             middle_name !== "" && last_name !== "" &&
             email !== "" && bio_dob !== "" &&
@@ -143,12 +143,12 @@ $(document).ready(function () {
 
 
     $('#education_validate').click(function () {
-        let education_level = $('.education_level').val();
-        let year_attended = $('.year_attended').val();
-        let type_of_institution = $('.type_of_institution').val();
-        let institution_attended = $('.institution_attended').val();
-        let course_studied = $('.course_studied').val();
-        let certificate = $('.certificate').val();
+        let education_level = $('.education_level').val().trim();
+        let year_attended = $('.year_attended').val().trim();
+        let type_of_institution = $('.type_of_institution').val().trim();
+        let institution_attended = $('.institution_attended').val().trim();
+        let course_studied = $('.course_studied').val().trim();
+        let certificate = $('.certificate').val().trim();
 
         if (education_level !== '' &&
             year_attended !== '' &&

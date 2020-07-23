@@ -20,51 +20,98 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 $(document).ready(function () {
+    // clear form ---- in case if a user navigate back to the signup page
 
+            $('.cafeName').val('');
+            $('.cafeContactPerson').val('');
+            $('.cafeEmailAddress').val('');
+            $('.cafePhoneNumber').val('');
+            $('.cafePassCode').val('');
+            $('.cafeAddress').val('');
+            $('.cafeLga').val('');
     // Signup Request
-    $("#sigunp-form").submit(function (event) {
-        var formJqObj = $("#sigunp-form");
-        var formDataObj = {};
+    $("#submit").click(function (event) {
+        event.preventDefault();
+        let formJqObj = $("#sigunp-form");
+        let formDataObj = {};
         (function () {
             formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
-                var thisInput = $(this);
+                let thisInput = $(this);
                 formDataObj[thisInput.attr("name")] = thisInput.val();
             });
         })();
 
-        $.ajax({
-            type: "POST",
-            url: hostname + '/ks-api/v1/cafes',
-            data: JSON.stringify(formDataObj),
-            contentType: "application/json",
-            beforeSend:function(){
-                $('#submit').attr('disabled','disabled');
-                $('.loader_container').show();
-            },
-            complete:function(){
-                $('#submit').attr('disabled',null);
-                $('.loader_container').hide();
-            }
-        })
+            $('.error_text_container').text('');
+            $('input[name="cafeName"]').removeClass('error_border');
+            $('input[name="cafeContactPerson"]').removeClass('error_border');
+            $('input[name="cafeEmailAddress"]').removeClass('error_border');
+            $('input[name="cafePhoneNumber"]').removeClass('error_border');
+            $('input[name="cafePassCode"]').removeClass('error_border');
+            $('input[name="cafeAddress"]').removeClass('error_border');
+            $('input[name="cafeLga"]').removeClass('error_border');
 
-            .done(function (data, textStatus, jqXHR) {
-                console.log("Ajax completed: " + data);
-                window.location.href = 'success.html';
+        let cafeName = $('.cafeName').val().trim();
+        let cafeContactPerson = $('.cafeContactPerson').val().trim();
+        let cafeEmailAddress = $('.cafeEmailAddress').val().trim();
+        let cafePhoneNumber = $('.cafePhoneNumber').val().trim();
+        let cafePassCode = $('.cafePassCode').val().trim();
+        let cafeAddress = $('.cafeAddress').val().trim();
+        let cafeLga = $('.cafeLga').val().trim();
+
+        if (cafeName !== '' && 
+            cafeContactPerson !== '' && 
+            cafeEmailAddress !== '' && 
+            cafePhoneNumber !== '' && 
+            cafePassCode !== '' && 
+            cafeLga !== '') {
+
+
+            $.ajax({
+                type: "POST",
+                url: hostname + '/ks-api/v1/cafes',
+                data: JSON.stringify(formDataObj),
+                contentType: "application/json",
+                beforeSend:function(){
+                    $('#submit').attr('disabled','disabled');
+                    $('.loader_container').show();
+                },
+                complete:function(){
+                    $('#submit').attr('disabled',null);
+                    $('.loader_container').hide();
+                }
             })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                console.log("Ajax problem: " + textStatus + ". " + errorThrown);
-            });
-        event.preventDefault();
+
+                .done(function (data, textStatus, jqXHR) {
+                    console.log("Ajax completed: " + data);
+                    window.location.href = 'success.html';
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log("Ajax problem: " + textStatus + ". " + errorThrown);
+                });
+            event.preventDefault();
+
+        }else {
+            $('.error_text_container').text('Please Fill all fields').css('color', '#dc3545');
+            $('.cafeName').addClass('error_border');
+            $('.cafeContactPerson').addClass('error_border');
+            $('.cafeEmailAddress').addClass('error_border');
+            $('.cafePhoneNumber').addClass('error_border');
+            $('.cafePassCode').addClass('error_border');
+            $('.cafeAddress').addClass('error_border');
+            $('.cafeLga').addClass('error_border');            
+        }
+
+
     });
 
 
     // Confirm submission for Register
     $('#confirm_btn').click(function (event) {
-        var formJqObj = $("#wizard");
-        var formDataObj = {};
+        let formJqObj = $("#wizard");
+        let formDataObj = {};
         (function () {
             formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
-                var thisInput = $(this);
+                let thisInput = $(this);
                 formDataObj[thisInput.attr("name")] = thisInput.val();
             });
         })();
@@ -86,7 +133,7 @@ $(document).ready(function () {
 
             .done(function (data, textStatus, jqXHR) {
                 console.log("Ajax completed: " + data);
-                window.location.href = 'success.html';
+                // window.location.href = 'success.html';
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 console.log("Ajax problem: " + textStatus + ". " + errorThrown);
@@ -119,11 +166,11 @@ $(document).ready(function () {
 
     // Login Request
     $("#login-form").submit(function (event) {
-        var formJqObj = $("#login-form");
-        var formDataObj = {};
+        let formJqObj = $("#login-form");
+        let formDataObj = {};
         (function () {
             formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
-                var thisInput = $(this);
+                let thisInput = $(this);
                 formDataObj[thisInput.attr("name")] = thisInput.val();
             });
         })();
@@ -154,7 +201,7 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-    var filedata = "";
+    let filedata = "";
 
     $(function(){
         $("#degreefileUpload").change(showPreviewImage_click);
@@ -169,9 +216,9 @@ $(document).ready(function () {
     })
 
     function getData(e) {
-        var selected = $(".type_of_institution").val()
+        let selected = $(".type_of_institution").val()
         console.log(selected)
-        var data = {
+        let data = {
             option: selected
         }
 
@@ -202,9 +249,9 @@ $(document).ready(function () {
     })
 
     function fillWards(e) {
-        var selected = $("#residence_lga").val()
+        let selected = $("#residence_lga").val()
         console.log(selected)
-        var lga = {
+        let lga = {
             cafeLga: selected
         }
 
@@ -231,12 +278,12 @@ $(document).ready(function () {
     }
 
     function showPreviewImage_click(e) {
-        var $input = $(this);
-        var inputFiles = this.files;
+        let $input = $(this);
+        let inputFiles = this.files;
         if(inputFiles == undefined || inputFiles.length == 0) return;
-        var inputFile = inputFiles[0];
+        let inputFile = inputFiles[0];
 
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.onload = function(event) {
             // console.log(event.target.result);
             filedata = event.target.result;

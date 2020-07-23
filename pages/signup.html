@@ -241,6 +241,9 @@
         <h4></h4>
         <section>
             <h3>N-SIP Centre Profile</h3>
+            <br>
+            <p class="error_text_container" style="font-weight: bolder;text-align: center;margin-bottom: 0.9rem"></p>
+
             <div class="form-row">
                 <div class="form-col">
                     <label for="">
@@ -248,7 +251,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-account-o"></i>
-                        <input type="text" class="form-control" name="cafeName">
+                        <input type="text" class="form-control cafeName" name="cafeName" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -257,7 +260,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-account-o"></i>
-                        <input type="text" class="form-control" name="cafeContactPerson">
+                        <input type="text" class="form-control cafeContactPerson" name="cafeContactPerson" required="required">
                     </div>
                 </div>
             </div>
@@ -268,7 +271,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-email"></i>
-                        <input type="email" class="form-control" name="cafeEmailAddress">
+                        <input type="email" class="form-control cafeEmailAddress" name="cafeEmailAddress" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -277,7 +280,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-smartphone-android"></i>
-                        <input type="text" class="form-control" name="cafePhoneNumber">
+                        <input type="text" class="form-control cafePhoneNumber" name="cafePhoneNumber" required="required">
                     </div>
                 </div>
             </div>
@@ -289,7 +292,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-shield-security"></i>
-                        <input type="password" class="form-control" name="cafePassCode">
+                        <input type="password" class="form-control cafePassCode" name="cafePassCode" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -298,7 +301,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-shield-security"></i>
-                        <input type="password" class="form-control" name="cafePassCode">
+                        <input type="password" class="form-control cafePassCode" name="cafePassCode" required="required">
                     </div>
                 </div>
             </div>
@@ -309,7 +312,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-my-location"></i>
-                        <input type="text" class="form-control" name="cafeAddress">
+                        <input type="text" class="form-control cafeAddress" name="cafeAddress" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -319,7 +322,7 @@
                     <div class="form-holder">
                         <i class="zmdi zmdi-home"></i>
                         <!--                        <select name="residence_lga" title="LGA of Residence (Where you live)" class="form-control">-->
-                        <select name="cafeLga" title="LGA of Residence (Where you live)" class="form-control">
+                        <select name="cafeLga" title="LGA of Residence (Where you live)" class="form-control cafeLga" required="required">
                             <option value="">Select</option>
                             <option value="Ajingi">Ajingi</option>
                             <option value="Albasu">Albasu</option>
