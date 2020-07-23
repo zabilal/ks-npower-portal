@@ -1,4 +1,4 @@
-let hostname = window.location.origin
+let hostname = 'http://n-sipkano.com'
 console.log(hostname);
 
 
@@ -49,6 +49,27 @@ $(document).ready(function () {
     });
 
 
+    // Preview Data script
+
+    $("#btn_review").click(function (event) {
+        event.preventDefault();
+        let formJqObj = $("#wizard");
+        let formDataObj = {};
+        (function () {
+            formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
+                let thisInput = $(this);
+                formDataObj[thisInput.attr("name")] = thisInput.val();
+            });
+        })();
+        let output;
+        for(item in formDataObj){
+            output += `<p><strong>${item} &mdash;&gt; ${formDataObj[item]}</p>`;
+        }
+        $('.review').html(output);
+
+    });
+
+
     // Login Request
     $("#login-form").submit(function (event) {
         var formJqObj = $("#login-form");
@@ -91,6 +112,43 @@ $(document).ready(function () {
     $(function(){
         $("#degreefileUpload").change(showPreviewImage_click);
     })
+
+
+
+    // Changing the dropdown content request ----- for type of institution
+
+    $(function(){
+        $(".type_of_institution").change(getData);
+    })
+
+    function getData(e) {
+        var selected = $(".type_of_institution").val()
+        console.log(selected)
+        var data = {
+            option: selected
+        }
+
+        $.ajax({
+            type: "POST",
+            url: hostname + '/ks-api/v1//candidate/drop',
+            data: JSON.stringify(data),
+            contentType: "application/json"
+        })
+            .done(function (data, textStatus, jqXHR) {
+                console.log("Ajax completed: " + data);
+                    $('.institution_attended').html('');
+                data.forEach(function(option) {
+                    console.log(option);
+
+                    $(".institution_attended").append(option);
+                });
+                //
+                // window.location.href = 'success.html';
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log("Ajax problem: " + textStatus + ". " + errorThrown);
+            });
+    }
 
     $(function(){
         $("#residence_lga").change(fillWards);

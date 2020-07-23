@@ -47,11 +47,14 @@
         // alert('click');
             $('.dob_text').text('');
             $('.bvn_text').text('');
+            $('.form_serial').text('');
             $('#bvn_number').removeClass('error_border');
             $('.dob').removeClass('error_border');
+            $('.form_serial').removeClass('error_border');
         let bvn_number = $('#bvn_number').val();
         let dob = $('.dob').val();
-        if (bvn_number !== '' && dob !== '') {
+        let form_serial = $('.form_serial').val();
+        if (bvn_number !== '' && dob !== '' && form_serial !== '') {
             next();
         }else {
             // alert('failed');
@@ -59,6 +62,7 @@
             $('.bvn_text').text('Please Input BVN Number').css('color','#dc3545');
             $('#bvn_number').addClass('error_border');
             $('.dob').addClass('error_border');
+            $('.form_serial').addClass('error_border');
         }
        });
 

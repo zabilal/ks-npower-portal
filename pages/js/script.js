@@ -56,25 +56,29 @@ $(document).ready(function () {
 
     // FUNCTION TO VALIDATE USER IDENTITY
 
-    $('#validate_id').click(function (e) {
+       $('#validate_id').click(function(e){
         e.preventDefault();
         // alert('click');
-        $('.dob_text').text('');
-        $('.bvn_text').text('');
-        $('#bvn_number').removeClass('error_border');
-        $('.dob').removeClass('error_border');
+            $('.dob_text').text('');
+            $('.bvn_text').text('');
+            $('.form_serial').text('');
+            $('#bvn_number').removeClass('error_border');
+            $('.dob').removeClass('error_border');
+            $('.form_serial').removeClass('error_border');
         let bvn_number = $('#bvn_number').val();
         let dob = $('.dob').val();
-        if (bvn_number !== '' && dob !== '') {
+        let form_serial = $('.form_serial').val();
+        if (bvn_number !== '' && dob !== '' && form_serial !== '') {
             next();
-        } else {
+        }else {
             // alert('failed');
-            $('.dob_text').text('Please choose Date of Birth').css('color', '#dc3545');
-            $('.bvn_text').text('Please Input BVN Number').css('color', '#dc3545');
+            $('.dob_text').text('Please choose Date of Birth').css('color','#dc3545');
+            $('.bvn_text').text('Please Input BVN Number').css('color','#dc3545');
             $('#bvn_number').addClass('error_border');
             $('.dob').addClass('error_border');
+            $('.form_serial').addClass('error_border');
         }
-    });
+       });
 
     // END OF IDENTITY FUNCTION
 
@@ -190,6 +194,7 @@ $(document).ready(function () {
     })
 
     var qualification;
+    $('.school_attended').hide();
     $('.education_level').change(function (e) {
         let options = $('.education_level option');
 
@@ -203,10 +208,18 @@ $(document).ready(function () {
             for (var i = 0; i < hidden_sec.length; i++) {
                 hidden_sec[i].style.display = 'none';
             }
+            $('.school_attended').show();
 // $('.hidden_for_sec').hide();
 
-        } else {
+        }
+        else if (qualification == 'Primary') {
+          $('.school_attended').show();
+            for (var i = 0; i < hidden_sec.length; i++) {
+                hidden_sec[i].style.display = 'none';
+            }
             $('table.table').hide();
+        }else {
+            $('.sec_section').hide();
             for (var i = 0; i < hidden_sec.length; i++) {
                 hidden_sec[i].style.display = 'block';
             }
