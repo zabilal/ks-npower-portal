@@ -63,7 +63,7 @@ $(document).ready(function () {
         })();
         let output;
         for(item in formDataObj){
-            output += `<p><strong>${item} &mdash;&gt; ${formDataObj[item]}</p>`;
+            output += `<p><strong>${item}</strong>: <span>${formDataObj[item]}</span></p>`;
         }
         $('.review').html(output);
 
