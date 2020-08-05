@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cafe | Admin Dashboard </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <!-- MATERIAL DESIGN ICONIC FONT -->
+        <link rel="stylesheet" href="custom/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+        <!-- DATE-PICKER -->
+        <link rel="stylesheet" href="custom/vendor/date-picker/css/datepicker.min.css">
+
+        <!-- STYLE CSS -->
+        <link rel="stylesheet" href="custom/css/style.css">
+        <style type="text/css" rel="stylesheet">
+            .form_wrapper form section {
+              display: none;
+            }
+
+            .btn_container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin: 2rem 0;
+            }
+              .wrapper {
+                  width: 100%;
+              }
+            table.table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 1rem;
+
+            }
+            table.table thead th, table.table tbody td {
+                border: 1px solid #ddd;
+                padding: 8px;               
+            }
+            table.table thead th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #3377c0;
+                color: white;
+                text-transform: uppercase;
+            }
+        </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+   <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Cafe &mdash; Admin</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="signup.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Cafe</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="cafe_list.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cafe List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="generate_passcode.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Generate Passcode</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="register.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register Candidate</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="candidate_list.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Candidate List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+
+
+
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Pages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/404.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 404</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/500.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Error 500</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/pace.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pace</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/examples/blank.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Blank Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="starter.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Starter Page</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Register Candidate</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Register Candiate</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+    <div class="form_wrapper">
+            <form action="" id="wizard">
+            <!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <h3>IDENTITY VERIFICATION</h3>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                BVN
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <input type="text" class="form-control" id="bvn_number" required="required">
+
+                            </div>
+                            <p class="bvn_text"></p>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Date of Birth
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <input type="text" class="form-control datepicker-here dob" data-language='en' data-date-format="dd - mm - yyyy" id="dp1" required="required">
+                            </div>
+                            <p class="dob_text"></p>
+                        </div>
+                    </div>
+                    <div class="btn_container">
+                        
+                        <button type="button" class="btn btn-primary" id="validate_id">Next</button>
+                    </div>
+                    
+                </section>
+                
+        <!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                    <h3>Bio-Data and Contact</h3>
+                    <br>
+                    <p class="bio_error" style="text-align: center;font-weight: bold;"></p>
+                    <br>
+                    <div class="form-row">
+
+                        <div class="form-col">
+                            <label for="">
+                                First Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control first_name" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Middle Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control middle_name" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Last Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control last_name" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                E-mail
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-email"></i>
+                                <input type="email" class="form-control email" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Date of Birth
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <input type="text" class="form-control datepicker-here bio_dob" data-language='en' data-date-format="dd - mm - yyyy" id="dp2" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Gender
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <select class="form-control gender" required="required">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Phone Number
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" class="form-control phone_number" required="required">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                               Additional Phone Number (Optional)
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" class="form-control additional_phone_number">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        State of Residence(where you live)
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-city"></i>
+                        <select class="form-control state_of_residence states" required="required">
+                        </select>
+                    </div> 
+                    </div> 
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                               LGA of Residence
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-city-alt"></i>
+                                <select class="form-control lga_of_residence locals" required="required"></select>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                    <label for="">
+                        Electoral Ward
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-city-alt"></i>
+                        <select class="form-control electoral_ward" required="required">
+
+                        </select>
+                    </div>  
+                        </div>
+                        
+                    </div>
+
+
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                               State of Origin(Where you're from)
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-city"></i>
+                                <select class="form-control state_of_origin states" required="required"></select>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                    <label for="">
+                        LGA of Origin(Where you're from)
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-city-alt"></i>
+                        <select class="form-control lga_of_origin locals" required="required">
+                        </select>
+                    </div>  
+                        </div>
+                        
+                    </div>
+
+                    <div style="margin: 0.8rem 0px">
+                    <label for="">
+                        Residential Address
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <input type="text" class="form-control residential_address" required="required">
+                    </div> 
+                    </div> 
+
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                               Postal Code(Optional)
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-email-open"></i>
+                                <input type="text" class="form-control postal_code">
+                            </div>
+
+
+                          
+                        </div>
+                        
+                    </div>
+
+                    <br>
+                    <label for="">
+                       Do you have any disability?
+                    </label>
+                    
+                        
+                        <input type="radio" name="disability" value="yes" class="disability_yes"> Yes 
+                        <input type="radio" name="disability" value="no" checked="checked" class="disability_no"> No
+                        <br>
+                        <br>
+                            <div class="hidden_disability">
+                            <label for="">
+                               What type of disability do you have?
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-clinic"></i>
+                                <input type="text" class="form-control disability_desc">
+                            </div>
+                            </div>
+                    <div class="btn_container" style="justify-content: space-between;">
+                        <button type="button" class="btn btn-primary previous_btn">Previous</button>
+                        <button type="button" class="btn btn-primary" id="bio_data_validate">Next</button>
+                        
+                    </div>
+                </section>
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+               <section>
+                    <h3>Education and Program</h3>
+                    <br>
+                    <p class="edu_error" style="text-align: center;font-weight: bold;"></p>
+                    <br>                        
+                        <label for="">
+                           Did you go to school?
+                        </label>
+                        <br>
+                    
+                        
+                        <input type="radio" name="school" checked="checked" id="confirm_school_yes"> Yes <br>
+                        <input type="radio" name="school" id="confirm_school_no"> No
+                        <br>
+                        <br>
+                        <div class="hidden_confirm">
+                            <label for="">
+                                Highest Level of Education
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-book"></i>
+                                <select class="form-control education_level" required="required">
+                                    <option></option>
+                                    <option value="Secondary">Secondary</option>
+                                    <option value="OND">OND</option>
+                                    <option value="HND">HND</option>
+                                    <option value="NCE">NCE</option>
+                                    <option value="Degree">Degree</option>
+                                </select>
+                            </div>
+                                               
+<br>
+<br>
+                    <div class="courses">
+                     <table class="table">
+                        <thead>
+                            <th>course</th>
+                            <th>grade</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="English Language">English Language</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Civic Education">Civic Education</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Geography">Geography</option>
+                                    <option value="Animal & Husbandry">Animal & Husbandry</option>
+                                    <option value="Fishery">Fishery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Data Processing">Data Processing</option>
+                                    <option value="Technical Drawing">Technical Drawing</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>                                    
+                                </td>
+                                <td>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-check"></i>
+                                <select class="form-control course_grade" required="required">
+                                    <option value="A1">A1</option>
+                                    <option value="B2">B2</option>
+                                    <option value="B3">B3</option>
+                                    <option value="C4">C4</option>
+                                    <option value="C5">C5</option>
+                                    <option value="C6">C6</option>
+                                    <option value="D7">D7</option>
+                                    <option value="E8">E8</option>
+                                    <option value="F9">F9</option>
+                                </select>
+                            </div>                                    
+                               </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+                    </div>
+
+                            <label for="">
+                                Select year attended
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <select class="form-control year_attended" required="required">
+                                    <option value="1990">1990</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                </select>
+                            </div>
+
+
+                    <div style="margin: 1rem 0px" class="hidden_for_sec">
+                    <label for="">
+                        Type of Institution
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <select class="form-control type_of_institution" required="required">
+                            <option value="Polytechnic">Polytechnic</option>
+                            <option value="College">College</option>
+                        </select>
+                    </div> 
+                    </div> 
+
+
+
+                    <div style="margin: 1rem 0px" class="hidden_for_sec">
+                    <label for="">
+                        Select Institution attended
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-home"></i>
+                        <select class="form-control institution_attended" required="required">
+                            <option value="ABU">ABU Zaria</option>
+                            <option value="ATBU">ATBU</option>
+                        </select>
+                    </div> 
+                    </div>                    
+
+
+
+                    <div style="margin: 0.5rem 0px" class="hidden_for_sec">
+                    <label for="">
+                        Enter Course Studied
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-book"></i>
+                        <input type="text" class="form-control course_studied" required="required">
+                    </div> 
+                    </div> 
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Upload Certificate
+                    </label>
+                    <div class="form-holder">
+                        <input type="file" class="form-control certificate" required="required">
+                        <hr>
+                      <label for="">
+                        Add additional Certificate
+                    </label>
+                        <input type="file" class="form-control certificate">
+                        
+                    </div> 
+                    </div> 
+
+                    <br>
+                    <br>
+                    </div>
+                    <div class="no_confirm_display">
+                    <label for="">
+                      Select your preferred program
+                    </label>
+                    <br>
+                        
+                        <input type="radio" value="N-Teach" name="program" checked="checked"> N-Teach <br> 
+                        <input type="radio" value="N-Agro" name="program"> N-Agro <br>
+                        <input type="radio" value="N-Health" name="program"> N-Health <br> 
+                        <input type="radio" value="N-Build" name="program"> N-Build <br>
+                        <input type="radio" value="N-Tech" name="program"> N-Tech <br> 
+                        <input type="radio" value="N-Creative" name="program"> N-Creative <br>
+                    <div class="btn_container" style="justify-content: space-between;">
+                        <button type="button" class="btn btn-primary previous_btn">Previous</button>
+                        <button type="button" class="btn btn-primary" id="education_validate">Next</button>
+                        
+                       
+                    </div>
+                    </div>
+                </section>
+
+                <h4></h4>
+                <section>
+                  <h3 style="margin-bottom: 37px;">Employment and other details</h3>
+                        <label for="">
+                           Are you currently employed?
+                        </label>
+                        <br>
+                    
+                        
+                        <input type="radio" name="employment" checked="checked" value="yes" class="employment_yes"> Yes <br>
+                        <input type="radio" name="employment" value="yes" class="employment_no"> No
+                        <br>
+                        <br>
+
+
+
+                    <div class="form-row">
+                        <div class="form-col earning">
+                            <label for="">
+                                How much money(Naira) do you earn per month today?
+                            </label>
+                            <br>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-money"></i>
+                                <select class="form-control" required="required">
+                                    <option disabled="disabled">N</option>
+                                    <option value="10,000">10,000</option>
+                                    <option value="20,000">20,000</option>
+                                    <option value="30,000">30,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-col">
+                            <label for="">
+                                Dependents: How many people do you feed today(E.g, Family, Relatives, Parents) ?
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account"></i>
+                                <select class="form-control" required="required">
+                                    <option disabled="disabled"></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
+
+
+                    <div class="form-row">
+
+
+                       <div class="form-col">
+                    <label for="">
+                        Select ID Type
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-face"></i>
+                        <select class="form-control" required="required">
+                            <option disabled="disabled">ID</option>
+                            <option value="national ID">National ID Card</option>
+                            <option value="permanent voters card">Permanent Voter's Card</option>
+                            <option value="international passport">International Passport</option>
+                        </select>
+                    </div>  
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                               Input ID Number
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-spellcheck"></i>
+                                <input type="text" class="form-control" required="required">
+                            </div>
+                        </div>
+ 
+                        
+                    </div>
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Upload Government Issued ID
+                    </label>
+                    <div class="form-holder">
+                        <input type="file" class="form-control" required="required">
+                    </div> 
+                    </div> 
+
+
+
+
+                    <div style="margin: 0.5rem 0px">
+                    <label for="">
+                        Upload Passport Photograph
+                    </label>
+                    <div class="form-holder">
+                        <input type="file" class="form-control" required="required">
+                    </div> 
+                    </div> 
+
+                    <div class="btn_container" style="justify-content: space-between;">
+                        <button type="button" class="btn btn-primary previous_btn">Previous</button>
+                        <button type="button" class="btn btn-primary next_btn">Next</button>
+                       
+                    </div>
+</section>
+
+                <h4></h4>
+                <section>
+                    <h3 style="margin-bottom: 37px;">Review and submit</h3>
+
+
+                    <input type="submit" name="confirm" class="btn btn-primary" id="confirm_btn" value="Confirm">
+                </section>
+
+
+            </form>
+    </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 <a href="/">Cafe</a>.</strong>
+    All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+
+
+<script src="custom/js/jquery-3.3.1.min.js"></script>
+<script src="custom/js/script.js"></script>
+<!-- DATE-PICKER -->
+<script src="custom/vendor/date-picker/js/datepicker.js"></script>
+<script src="custom/vendor/date-picker/js/datepicker.en.js"></script>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js"></script>
+<script src="../js/kscontrol.js"></script>
+
+</body>
+</html>
