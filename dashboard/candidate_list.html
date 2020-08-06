@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<<<<<<< HEAD
+
   <link rel="stylesheet" type="text/css" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <link rel="stylesheet" type="text/css" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" type="text/css" href="plugins/datatables-select/css/select.bootstrap4.min.css">
@@ -54,9 +54,11 @@
         .loader_container p {
             color: #3377c0;
         }
+        table.table tbody tr td {
+          text-transform: capitalize;
+        }
   </style>
-=======
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -339,7 +341,7 @@
                 <table class="table table-hover text-nowrap table-responsive">
                   <thead>
                     <tr>
-<<<<<<< HEAD
+
                       <th>Cafe ID</th>
                       <th>Application ID</th>
                       <th>First Name</th>
@@ -354,16 +356,7 @@
                       <th>Residence Address</th>
                       <th>LGA</th>
                       <th>LGA Ward</th>
-=======
-                      <th>ID</th>
-                      <th>Passcode</th>
-                      <th>Name</th>
-                      <th>Contact Person</th>
-                      <th>Email</th>
-                      <th>Phone Number</th>
-                      <th>Address</th>
-                      <th>LGA</th>
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
+
                     </tr>
                   </thead>
                   <tbody>
@@ -372,15 +365,15 @@
                 </table>
               </div>
               <!-- /.card-body -->
-<<<<<<< HEAD
+
                                 <div class="loader_container my-4">
                 <div class="lds-dual-ring"></div>
                 <p>Loading data...Please wait, this might take some time..</p>
                 </div> 
               
             </div>
-=======
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
+
+
             </div>
             <!-- /.card -->
 
@@ -419,13 +412,13 @@
 <script type="text/javascript" src="plugins/datatables-buttons/js/pdfmake.min.js"></script>
 <script type="text/javascript" src="plugins/datatables-buttons/js/vfs_fonts.js"></script>
 <script type="text/javascript" src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<<<<<<< HEAD
+
 <script type="text/javascript" src="plugins/datatables-select/js/dataTables.select.min.js"></script>
 <script type="text/javascript" src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
 <script type="text/javascript" src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-=======
+
 <script type="text/javascript" src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
+
 <!-- <script type="text/javascript" src="../js/jquery.ajax-cross-origin.min.js"></script> -->
 <script type="text/javascript">
 $(document).ready(function(){
@@ -434,7 +427,6 @@ $.ajax({
   method:'GET',
   // crossOrigin: true,
   dataType: 'json',
-<<<<<<< HEAD
    beforeSend: function () {
                 $('#confirm_btn').attr('disabled', 'disabled');
                 $('.loader_container').show();
@@ -443,45 +435,28 @@ $.ajax({
                 $('#confirm_btn').attr('disabled', null);
                 $('.loader_container').hide();
             },
-=======
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
   success:function(response){
     console.log(response);
     var output;
     for (var i = 0; i < response.length; i++) {
-<<<<<<< HEAD
       // console.log(response[i]);
       // for(item in response[i]) {
         // console.log(response[i].id);
         output += `<tr>
                       <td>${response[i].cafe_id}</td>
                       <td>${response[i].application_id}</td>
-                      <td>${response[i].firstname.toUpperCase()}</td>
-                      <td>${response[i].middlename.toUpperCase()}</td>
-                      <td>${response[i].lastname.toUpperCase()}</td>
+                      <td>${response[i].firstname}</td>
+                      <td>${response[i].middlename}</td>
+                      <td>${response[i].lastname}</td>
                       <td>${response[i].formNumber}</td>
                       <td>${response[i].phone}</td>
                       <td>${response[i].gender}</td>                     
-                      <td>${response[i].email.toUpperCase()}</td>                     
+                      <td>${response[i].email}</td>                     
                       <td>${response[i].program}</td>                     
-                      <td>${response[i].residence_state.toUpperCase()}</td>                     
+                      <td>${response[i].residence_state}</td>                     
                       <td>${response[i].residence_address}</td>                     
-                      <td>${response[i].residence_lga.toUpperCase()}</td>                     
-                      <td>${response[i].ward.toUpperCase()}</td>                     
-=======
-      console.log(response[i]);
-      // for(item in response[i]) {
-        // console.log(response[i].id);
-        output += `<tr>
-                      <td>${response[i].id}</td>
-                      <td>${response[i].cafePassCode}</td>
-                      <td>${response[i].cafeName}</td>
-                      <td>${response[i].cafeContactPerson}</td>
-                      <td>${response[i].cafeEmailAddress}</td>
-                      <td>${response[i].cafePhoneNumber}</td>                     
-                      <td>${response[i].cafeAddress}</td>                     
-                      <td>${response[i].cafeLga}</td>                     
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
+                      <td>${response[i].residence_lga}</td>                     
+                      <td>${response[i].ward}</td>                     
                     </tr>`;
       // }
       
@@ -492,17 +467,12 @@ $('table.table').DataTable({
   buttons: {
     buttons:[{
       extend: 'excel',
-<<<<<<< HEAD
       text: '<i class="fa fa-file-excel mr-1"></i> Excel',
       className:'btn-outline-dark btn-md bg-light'
-=======
-      text: '<i class="fa fa-file-excel mr-1"></i> Excel'
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
     },
 {
       extend: 'pdf',
       text: '<i class="fa fa-file-pdf"></i> PDF',
-<<<<<<< HEAD
       orientation: 'landscape',
       className:'ml-2 btn-outline-dark btn-md bg-light'
     },
@@ -529,24 +499,6 @@ $('table.table').DataTable({
 });
   }
 });
-=======
-      orientation: 'landscape'
-    },
-{
-      extend: 'copy',
-      text: '<i class="fa fa-copy"></i> Copy'
-    },
-{
-      extend: 'csv',
-      text: '<i class="fa fa-file"></i> CSV'
-    }
-
-    ]
-  }
-});
-  }
-})
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
 
 
 }); 

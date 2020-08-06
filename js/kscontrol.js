@@ -186,18 +186,15 @@ $(document).ready(function () {
         })();
         let output;
         for (item in formDataObj) {
-<<<<<<< HEAD
             if (formDataObj[item]) {
             output += `<p><strong>${item}</strong>: <span>${formDataObj[item]}</span></p>`;
         }
         }
         $('.review').html(output);
         document.querySelector('.review').childNodes[0].textContent = '';
-=======
-            output += `<p><strong>${item}</strong>: <span>${formDataObj[item]}</span></p>`;
-        }
-        $('.review').html(output);
->>>>>>> 1ecb9839d01d95575cd02a4be5a9355ab212d52a
+
+
+
 
     });
 
