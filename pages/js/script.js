@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var section = $('section');
     var counter = 0;
+
     reset();
 
     function reset() {
@@ -9,9 +10,9 @@ $(document).ready(function () {
 
         }
         if (counter == 0) {
-          document.querySelector('.wrapper').classList.add('translate_first');
-        }else {
-          document.querySelector('.wrapper').classList.remove('translate_first');
+            document.querySelector('.wrapper').classList.add('translate_first');
+        } else {
+            document.querySelector('.wrapper').classList.remove('translate_first');
         }
         section[counter].style.display = 'block';
     }
@@ -35,14 +36,12 @@ $(document).ready(function () {
     }
 
 
+    $('.next_btn').click(function (e) {
 
-
-
-    $('.next_btn').click(function(e){
-
-         e.preventDefault();
-         next();
+        e.preventDefault();
+        next();
     });
+
     $('.previous_btn').click(function (e) {
         e.preventDefault();
         $('.dob_text').text('');
@@ -57,36 +56,34 @@ $(document).ready(function () {
     });
 
 
-
-
     // VALIDATION FUNCTIONS
 
 
     // FUNCTION TO VALIDATE USER IDENTITY
 
-       $('#validate_id').click(function(e){
+    $('#validate_id').click(function (e) {
         e.preventDefault();
         // alert('click');
-            $('.dob_text').text('');
-            $('.bvn_text').text('');
-            $('.form_serial').text('');
-            $('#bvn_number').removeClass('error_border');
-            $('.dob').removeClass('error_border');
-            $('.form_serial').removeClass('error_border');
+        $('.dob_text').text('');
+        $('.bvn_text').text('');
+        $('.form_serial').text('');
+        $('#bvn_number').removeClass('error_border');
+        $('.dob').removeClass('error_border');
+        $('.form_serial').removeClass('error_border');
         let bvn_number = $('#bvn_number').val().trim();
         let dob = $('.dob').val().trim();
         let form_serial = $('.form_serial').val().trim();
         if (bvn_number !== '' && dob !== '' && form_serial !== '') {
             next();
-        }else {
+        } else {
             // alert('failed');
-            $('.dob_text').text('Please choose Date of Birth').css('color','#dc3545');
-            $('.bvn_text').text('Please Input BVN Number').css('color','#dc3545');
+            $('.dob_text').text('Please choose Date of Birth').css('color', '#dc3545');
+            $('.bvn_text').text('Please Input BVN Number').css('color', '#dc3545');
             $('#bvn_number').addClass('error_border');
             $('.dob').addClass('error_border');
             $('.form_serial').addClass('error_border');
         }
-       });
+    });
 
     // END OF IDENTITY FUNCTION
 
@@ -96,7 +93,7 @@ $(document).ready(function () {
     $('#bio_data_validate').click(function (e) {
         e.preventDefault();
         let first_name = $('.first_name').val().trim();
-        let middle_name = $('.middle_name').val().trim();
+        // let middle_name = $('.middle_name').val().trim();
         let last_name = $('.last_name').val().trim();
         let email = $('.email').val().trim();
         let bio_dob = $('.bio_dob').val().trim();
@@ -109,7 +106,8 @@ $(document).ready(function () {
         let lga_of_origin = $('.lga_of_origin').val().trim();
         let residential_address = $('.residential_address').val().trim();
         if (first_name !== "" &&
-            middle_name !== "" && last_name !== "" &&
+            // middle_name !== "" &&
+            last_name !== "" &&
             email !== "" && bio_dob !== "" &&
             gender !== "" &&
             phone_number !== "" &&
@@ -123,7 +121,7 @@ $(document).ready(function () {
         } else {
             $('.bio_error').text('Please Fill in all fields').css('color', '#dc3545');
             $('.first_name').addClass('error_border');
-            $('.middle_name').addClass('error_border');
+            // $('.middle_name').addClass('error_border');
             $('.last_name').addClass('error_border');
             $('.email').addClass('error_border');
             $('.bio_dob').addClass('error_border');
@@ -137,38 +135,40 @@ $(document).ready(function () {
             $('.residential_address').addClass('error_border');
 
         }
-
+        //
     });
     // END OF FUNCTION TO VALIDATE BIO-DATA
 
 
+    //FUNCTION TO VALIDATE EDUCATION DATA
+
     $('#education_validate').click(function () {
-        let education_level = $('.education_level').val().trim();
-        let year_attended = $('.year_attended').val().trim();
-        let type_of_institution = $('.type_of_institution').val().trim();
-        let institution_attended = $('.institution_attended').val().trim();
-        let course_studied = $('.course_studied').val().trim();
-        let certificate = $('.certificate').val().trim();
-
-        if (education_level !== '' &&
-            year_attended !== '' &&
-            type_of_institution !== '' &&
-            course_studied !== '' &&
-            certificate !== '') {
+        // let education_level = $('.education_level').val().trim();
+        // let year_attended = $('.year_attended').val().trim();
+        // let type_of_institution = $('.type_of_institution').val().trim();
+        // // let institution_attended = $('.institution_attended').val().trim();
+        // let course_studied = $('.course_studied').val().trim();
+        // let certificate = $('.certificate').val().trim();
+        //
+        // if (
+        //     education_level !== '' &&
+        //     year_attended !== '' &&
+        //     type_of_institution !== '' &&
+        //     course_studied !== '' &&
+        //     certificate !== '') {
             next();
-        } else {
-            $('.edu_error').text('Please Fill in all fields').css('color', '#dc3545');
-            $('.education_level').addClass('error_border');
-            $('.year_attended').addClass('error_border');
-            $('.type_of_institution').addClass('error_border');
-            $('.institution_attended').addClass('error_border');
-            $('.course_studied').addClass('error_border');
-            $('.certificate').addClass('error_border');
-        }
+        // } else {
+        //     $('.edu_error').text('Please Fill in all fields').css('color', '#dc3545');
+        //     $('.education_level').addClass('error_border');
+        //     $('.year_attended').addClass('error_border');
+        //     $('.type_of_institution').addClass('error_border');
+        //     $('.institution_attended').addClass('error_border');
+        //     $('.course_studied').addClass('error_border');
+        //     $('.certificate').addClass('error_border');
+        // }
 
-
+        //
     });
-
 
     $('.hidden_disability').hide();
 
@@ -181,6 +181,7 @@ $(document).ready(function () {
         $('.hidden_disability').hide();
 
     });
+
 // EDUCATION SECTION CODE TO TOGGLE CERTAIN INPUT FIELDS
 
     $('table.table').hide();
@@ -189,9 +190,9 @@ $(document).ready(function () {
 
         $('.hidden_confirm').hide();
         $('.edu_error').text('');
-        $('#education_validate').click(function () {
-            next();
-        })
+        // $('#education_validate').click(function () {
+        //     next();
+        // })
 
     })
 
@@ -203,6 +204,8 @@ $(document).ready(function () {
 
     var qualification;
     $('.school_attended').hide();
+    $('.primary_cert').hide();
+    $('.nysc_completion').hide();
     $('.education_level').change(function (e) {
         let options = $('.education_level option');
 
@@ -217,16 +220,18 @@ $(document).ready(function () {
                 hidden_sec[i].style.display = 'none';
             }
             $('.school_attended').show();
+            $('.primary_cert').hide();
 // $('.hidden_for_sec').hide();
 
-        }
-        else if (qualification == 'Primary') {
-          $('.school_attended').show();
+        } else if (qualification == 'Primary') {
+            $('.school_attended').show();
+            $('.primary_cert').show();
+            $('.nysc_completion').show();
             for (var i = 0; i < hidden_sec.length; i++) {
                 hidden_sec[i].style.display = 'none';
             }
             $('table.table').hide();
-        }else {
+        } else {
             $('.sec_section').hide();
             for (var i = 0; i < hidden_sec.length; i++) {
                 hidden_sec[i].style.display = 'block';
@@ -242,5 +247,32 @@ $(document).ready(function () {
     $('.employment_yes').change(function () {
         $('.earning').show();
     });
+
+    $('#nysc_status_yes').change(function () {
+        $('.nysc_cert').show();
+        $('.nysc_completion').hide();
+    })
+
+    $('#nysc_status_no').change(function () {
+        $('.nysc_cert').hide();
+        $('.nysc_completion').show();
+    })
+
+    $('.next_btn').click(function () {
+        let id_type = $('#id_type').val().trim();
+        let id_number = $('#id_number').val().trim();
+        let gov_id = $('#gov_id').val().trim();
+        let passport = $('#passport').val().trim();
+
+        if (id_type !== '' && id_number !== '' && gov_id !== '' && passport !== '') {
+            next();
+        } else {
+            $('.emp_error').text('Please Fill in all required fields').css('color', '#dc3545');
+            $('.id_type').addClass('error_border');
+            $('.id_number').addClass('error_border');
+            $('.gov_id').addClass('error_border');
+            $('.passport').addClass('error_border');
+        }
+    })
 
 });

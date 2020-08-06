@@ -1,35 +1,34 @@
+// let hostname = window.location.host
 let hostname = 'http://n-sipkano.com'
-console.log(hostname);
-
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const node = await Ipfs.create({ repo: 'ipfs-' + Math.random() })
-    window.node = node
-
-    const status = node.isOnline() ? 'online' : 'offline'
-    //
-    console.log(`Node status: ${status}`)
-    // document.getElementById('status').innerHTML = `Node status: ${status}`
-
-    // You can write more code here to use it. Use methods like
-    // node.add, node.get. See the API docs here:
-    // https://github.com/ipfs/js-ipfs/tree/master/packages/interface-ipfs-core
-
-
-});
-
+// let hostname = 'http://localhost:8080'
+// console.log("hostname :: " + hostname);
 
 $(document).ready(function () {
+
+    var cert_1 = "";
+    var cert_2 = "";
+    var gov_id = "";
+    var pasport = "";
+
+    var cafe = localStorage.getItem('cafeName');
+
+    var cafeId = localStorage.getItem('cafeId');
+
+    $("#dynamic_text").html(cafe);
+
     // clear form ---- in case if a user navigate back to the signup page
 
-            $('.cafeName').val('');
-            $('.cafeContactPerson').val('');
-            $('.cafeEmailAddress').val('');
-            $('.cafePhoneNumber').val('');
-            $('.cafePassCode').val('');
-            $('.cafeAddress').val('');
-            $('.cafeLga').val('');
+    $('.cafeName').val('');
+    $('.cafeContactPerson').val('');
+    $('.cafeEmailAddress').val('');
+    $('.cafePhoneNumber').val('');
+    $('.cafePassCode').val('');
+    $('.cafeAddress').val('');
+    $('.cafeLga').val('');
+
+
     // Signup Request
+
     $("#submit").click(function (event) {
         event.preventDefault();
         let formJqObj = $("#sigunp-form");
@@ -41,14 +40,14 @@ $(document).ready(function () {
             });
         })();
 
-            $('.error_text_container').text('');
-            $('input[name="cafeName"]').removeClass('error_border');
-            $('input[name="cafeContactPerson"]').removeClass('error_border');
-            $('input[name="cafeEmailAddress"]').removeClass('error_border');
-            $('input[name="cafePhoneNumber"]').removeClass('error_border');
-            $('input[name="cafePassCode"]').removeClass('error_border');
-            $('input[name="cafeAddress"]').removeClass('error_border');
-            $('input[name="cafeLga"]').removeClass('error_border');
+        $('.error_text_container').text('');
+        $('input[name="cafeName"]').removeClass('error_border');
+        $('input[name="cafeContactPerson"]').removeClass('error_border');
+        $('input[name="cafeEmailAddress"]').removeClass('error_border');
+        $('input[name="cafePhoneNumber"]').removeClass('error_border');
+        $('input[name="cafePassCode"]').removeClass('error_border');
+        $('input[name="cafeAddress"]').removeClass('error_border');
+        $('input[name="cafeLga"]').removeClass('error_border');
 
         let cafeName = $('.cafeName').val().trim();
         let cafeContactPerson = $('.cafeContactPerson').val().trim();
@@ -58,11 +57,11 @@ $(document).ready(function () {
         let cafeAddress = $('.cafeAddress').val().trim();
         let cafeLga = $('.cafeLga').val().trim();
 
-        if (cafeName !== '' && 
-            cafeContactPerson !== '' && 
-            cafeEmailAddress !== '' && 
-            cafePhoneNumber !== '' && 
-            cafePassCode !== '' && 
+        if (cafeName !== '' &&
+            cafeContactPerson !== '' &&
+            cafeEmailAddress !== '' &&
+            cafePhoneNumber !== '' &&
+            cafePassCode !== '' &&
             cafeLga !== '') {
 
 
@@ -71,12 +70,12 @@ $(document).ready(function () {
                 url: hostname + '/ks-api/v1/cafes',
                 data: JSON.stringify(formDataObj),
                 contentType: "application/json",
-                beforeSend:function(){
-                    $('#submit').attr('disabled','disabled');
+                beforeSend: function () {
+                    $('#submit').attr('disabled', 'disabled');
                     $('.loader_container').show();
                 },
-                complete:function(){
-                    $('#submit').attr('disabled',null);
+                complete: function () {
+                    $('#submit').attr('disabled', null);
                     $('.loader_container').hide();
                 }
             })
@@ -90,7 +89,7 @@ $(document).ready(function () {
                 });
             event.preventDefault();
 
-        }else {
+        } else {
             $('.error_text_container').text('Please Fill all fields').css('color', '#dc3545');
             $('.cafeName').addClass('error_border');
             $('.cafeContactPerson').addClass('error_border');
@@ -98,14 +97,21 @@ $(document).ready(function () {
             $('.cafePhoneNumber').addClass('error_border');
             $('.cafePassCode').addClass('error_border');
             $('.cafeAddress').addClass('error_border');
-            $('.cafeLga').addClass('error_border');            
+            $('.cafeLga').addClass('error_border');
         }
 
 
     });
 
+    //logout
+    $(".logout_btn").click(function (event) {
+        event.preventDefault();
+        location.href = hostname + '/pages/login.html';
+    })
+
 
     // Confirm submission for Register
+
     $('#confirm_btn').click(function (event) {
         let formJqObj = $("#wizard");
         let formDataObj = {};
@@ -116,31 +122,54 @@ $(document).ready(function () {
             });
         })();
 
+        formDataObj["cafe_id"] = cafeId;
+        formDataObj["degree_upload"] = cert_1;
+        formDataObj["additional_degree_upload"] = cert_2;
+        formDataObj["id_upload"] = gov_id;
+        formDataObj["passport_upload"] = pasport;
+
         $.ajax({
             type: "POST",
-            url: hostname + '/ks-api/v1//candidate',
+            url: hostname + '/ks-api/v1/candidate',
             data: JSON.stringify(formDataObj),
             contentType: "application/json",
-            beforeSend:function(){
-                $('#confirm_btn').attr('disabled','disabled');
+            beforeSend: function () {
+                $('#confirm_btn').attr('disabled', 'disabled');
                 $('.loader_container').show();
             },
-            complete:function(){
-                $('#confirm_btn').attr('disabled',null);
+            complete: function () {
+                $('#confirm_btn').attr('disabled', null);
                 $('.loader_container').hide();
+            },
+
+            success: function (data, textStatus, jqXHR) {
+                console.log("Response :: " + data);
+                // cert_1 = data['fileDownloadUri'];
+                if (jqXHR.status == 201){
+                    window.location.href = 'candidate_success.html';
+                }
             }
         })
-
             .done(function (data, textStatus, jqXHR) {
+
                 console.log("Ajax completed: " + data);
-                // window.location.href = 'success.html';
+                console.log("Ajax completed: " + textStatus);
+                console.log("Ajax completed: " + jqXHR.status);
+                // if (jqXHR.status == 201){
+                //     window.location.href = 'candidate_success.html';
+                // }
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 409){
+                    alert("BVN Number has Been Used !!!")
+                }
+                if (jqXHR.status == 101){
+                    alert("FORM SERIAL Number has Been Used !!!")
+                }
                 console.log("Ajax problem: " + textStatus + ". " + errorThrown);
             });
         event.preventDefault();
     });
-
 
 
     // Preview Data script
@@ -156,62 +185,21 @@ $(document).ready(function () {
             });
         })();
         let output;
-        for(item in formDataObj){
+        for (item in formDataObj) {
+            if (formDataObj[item]) {
             output += `<p><strong>${item}</strong>: <span>${formDataObj[item]}</span></p>`;
         }
+        }
         $('.review').html(output);
+        document.querySelector('.review').childNodes[0].textContent = '';
 
     });
-
-
-    // Login Request
-    $("#login-form").submit(function (event) {
-        let formJqObj = $("#login-form");
-        let formDataObj = {};
-        (function () {
-            formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
-                let thisInput = $(this);
-                formDataObj[thisInput.attr("name")] = thisInput.val();
-            });
-        })();
-
-        $.ajax({
-            type: "POST",
-            url: hostname + '/ks-api/v1/cafes/login',
-            data: JSON.stringify(formDataObj),
-            contentType: "application/json"
-        })
-            .done(function (data, textStatus, jqXHR) {
-                console.log("Ajax completed: " + data + " ===== " + textStatus);
-                if(textStatus != "success"){
-                    $('#login_error').html(data);
-                }else{
-                    location.href = hostname + '/pages/register.html';
-                }
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                console.log("Ajax problem: " + textStatus + " . " + errorThrown);
-                if(textStatus == "error"){
-                    alert("Invalid    Email/Password.......Please ...try   Again!!")
-                    $('#login_error').html(errorThrown);
-                }else{
-                    location.href = hostname + '/pages/register.html';
-                }
-            });
-        event.preventDefault();
-    });
-
-    let filedata = "";
-
-    $(function(){
-        $("#degreefileUpload").change(showPreviewImage_click);
-    })
 
 
 
     // Changing the dropdown content request ----- for type of institution
 
-    $(function(){
+    $(function () {
         $(".type_of_institution").change(getData);
     })
 
@@ -224,14 +212,14 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: hostname + '/ks-api/v1//candidate/drop',
+            url: hostname + '/ks-api/v1/candidate/drop',
             data: JSON.stringify(data),
             contentType: "application/json"
         })
             .done(function (data, textStatus, jqXHR) {
                 console.log("Ajax completed: " + data);
-                    $('.institution_attended').html('');
-                data.forEach(function(option) {
+                $('.institution_attended').html('');
+                data.forEach(function (option) {
                     console.log(option);
 
                     $(".institution_attended").append(option);
@@ -244,15 +232,28 @@ $(document).ready(function () {
             });
     }
 
-    $(function(){
+    $(function () {
+        $("#dob").change(function (e) {
+            console.log($("#dob").val())
+        });
+    })
+
+    $(function () {
+        // document.getElementById("wards").options.length = 0;
+
         $("#residence_lga").change(fillWards);
     })
 
     function fillWards(e) {
+        $('#wards').empty();
+            // .find('option')
+            // .remove()
+            // .end();
+
         let selected = $("#residence_lga").val()
         console.log(selected)
         let lga = {
-            cafeLga: selected
+            cafeLga: selected.trim()
         }
 
         $.ajax({
@@ -264,7 +265,7 @@ $(document).ready(function () {
             .done(function (data, textStatus, jqXHR) {
                 console.log("Ajax completed: " + data);
                 // $("#wards").cleanData();
-                data.forEach(function(option) {
+                data.forEach(function (option) {
                     console.log(option);
 
                     $("#wards").append(option);
@@ -277,44 +278,141 @@ $(document).ready(function () {
             });
     }
 
-    function showPreviewImage_click(e) {
-        let $input = $(this);
-        let inputFiles = this.files;
-        if(inputFiles == undefined || inputFiles.length == 0) return;
-        let inputFile = inputFiles[0];
+    $("#cert_1").on("change", function (e) {
+        var file = $(this)[0].files[0];
+        // var name = file.name.split(".");
+        // console.log(name[0]);
 
-        let reader = new FileReader();
-        reader.onload = function(event) {
-            // console.log(event.target.result);
-            filedata = event.target.result;
-            sendFile(event.target.result).then((result)=>{
-                console.log("Login from Call ::: " + result);
-            });
-        };
-        reader.onerror = function(event) {
-            alert("I AM ERROR: " + event.target.error.code);
-        };
-        reader.readAsDataURL(inputFile);
-    }
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', "degree");
+        formData.append('bvnParam', $("#bvn_number").val());
 
-    async function sendFile(fileData) {
-        console.log(fileData)
+        $.ajax({
+            url: hostname + '/ks-api/v1/uploadFile',
+            type: 'POST',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                console.log(data);
+                cert_1 = data['fileDownloadUri'];
+            }
+        });
+    });
 
-        //Remove base64 prefix
-        const endOfPrefix = fileData.indexOf(",");
-        const cleanStrData = fileData.slice(endOfPrefix+1);
+    $("#cert_2").on("change", function (e) {
+        var file = $(this)[0].files[0];
 
-        for await (const { cid } of node.add(cleanStrData)) {
-            console.log('successfully stored', cid)
-        }
-    }
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', "addition");
+        formData.append('bvnParam', $("#bvn_number").val());
 
-    // $("#submit").click(function() {
-    //     // disable button
-    //     $(this).prop("disabled", true);
-    //     // add spinner to button
-    //     $(this).html(
-    //         `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
-    //     );
-    // });
+        $.ajax({
+            url: hostname + '/ks-api/v1/uploadFile',
+            type: 'POST',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                console.log(data);
+                cert_2 = data['fileDownloadUri'];
+                // alert(data);
+            }
+        });
+    });
+
+    $("#gov_id").on("change", function (e) {
+        var file = $(this)[0].files[0];
+
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', "id");
+        formData.append('bvnParam', $("#bvn_number").val());
+
+        $.ajax({
+            url: hostname + '/ks-api/v1/uploadFile',
+            type: 'POST',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                console.log(data);
+                gov_id = data['fileDownloadUri'];
+                // alert(data);
+            }
+        });
+    });
+
+    $("#passport").on("change", function (e) {
+        var file = $(this)[0].files[0];
+
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', "passport");
+        formData.append('bvnParam', $("#bvn_number").val());
+
+        $.ajax({
+            url: hostname + '/ks-api/v1/uploadFile',
+            type: 'POST',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                console.log(data);
+                pasport = data['fileDownloadUri'];
+                // alert(data);
+
+            }
+        });
+    });
+
+    $("#primary_cert").on("change", function (e) {
+        var file = $(this)[0].files[0];
+
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', "primary");
+        formData.append('bvnParam', $("#bvn_number").val());
+
+        $.ajax({
+            url: hostname + '/ks-api/v1/uploadFile',
+            type: 'POST',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                console.log(data);
+                pasport = data['fileDownloadUri'];
+                // alert(data);
+
+            }
+        });
+    });
+
+    $("#nysc").on("change", function (e) {
+        var file = $(this)[0].files[0];
+
+        var formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', "nysc");
+        formData.append('bvnParam', $("#bvn_number").val());
+
+        $.ajax({
+            url: hostname + '/ks-api/v1/uploadFile',
+            type: 'POST',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                // console.log(data);
+                pasport = data['fileDownloadUri'];
+                // alert(pasport);
+
+            }
+        });
+    });
+
+
 });

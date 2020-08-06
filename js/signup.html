@@ -152,14 +152,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- MATERIAL DESIGN ICONIC FONT -->
-    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="../pages/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 
     <!-- DATE-PICKER -->
-    <link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+    <link rel="stylesheet" href="../pages/vendor/date-picker/css/datepicker.min.css">
 
     <!-- STYLE CSS -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../pages/css/style.css">
     <style type="text/css" rel="stylesheet">
         * {
             box-sizing: border-box;
@@ -170,7 +170,14 @@
         }
 
         body {
+            /*background: lightgrey;*/
+            /*align-items: center;*/
+
             background: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .wrapper {
@@ -194,9 +201,18 @@
         }
 
         @media (max-width: 768px) {
+            .wrapper {
+                padding: 2rem 0.8rem;
+            }
             .wrapper .btn {
                 width: 50%;
                 float: none;
+            }
+            body {
+                background: white;
+            }
+            .footer {
+                margin-top: 1rem;
             }
         }
 
@@ -383,23 +399,37 @@
             </div>
 
             <div style="margin-top: 2rem">
-                <p>Already have an Account? <a href="login.html">Login</a></p>
+                <p>Already have an Account? <a href="../pages/login.html">Login</a></p>
             </div>
 
         </section>
 
 
     </form>
+
+    <br><br>
+    <footer style="text-align: center">
+        <p class="copywrite">
+<!--            Copyright © 2020 Kano State N-Power Support. All Rights Reserved.-->
+        </p>
+        <br>
+        <p class="user-info">
+            Powered by : <a href="http://www.ipplusng.com">IPPLUS Nigeria LTD</a>
+        </p>
+
+    </footer>
 </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
 
-<script src="../js/kscontrol.js"></script>
+
+<script src="../pages/js/jquery-3.3.1.min.js"></script>
+
+<script src="kscontrol.js"></script>
 
 
 <!-- DATE-PICKER -->
-<script src="vendor/date-picker/js/datepicker.js"></script>
-<script src="vendor/date-picker/js/datepicker.en.js"></script>
+<script src="../pages/vendor/date-picker/js/datepicker.js"></script>
+<script src="../pages/vendor/date-picker/js/datepicker.en.js"></script>
 
 </body>
 </html>

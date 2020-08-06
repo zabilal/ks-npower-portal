@@ -16,7 +16,7 @@
 
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+    <!--    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>-->
     <style type="text/css" rel="stylesheet">
         .wrapper form section {
             display: none;
@@ -56,11 +56,19 @@
             body {
                 background: #fff;
             }
+            header.header h3 {
+                font-size: 1.1rem !important;
+            }
 
             .wrapper {
                 width: 100%;
                 padding: 0.5rem 1rem;
                 height: 100%;
+            }
+            footer p.copywrite {
+                margin-top: 2.3rem;
+                padding: 0 0.5rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -84,9 +92,11 @@
             color: white;
             text-transform: uppercase;
         }
+
         .translate_first {
             transform: translateY(10%);
         }
+
         header.header {
             display: flex;
             justify-content: space-between;
@@ -95,65 +105,75 @@
             padding: 0.8rem;
             margin: 0.5rem auto;
             margin-top: 0;
-            background: #7fff00;
+            /*background: #7fff00;*/
+            background: #0668bf;
         }
-         header.header h3 {
+
+        header.header h3 {
             font-size: 1.8rem;
             color: white;
             margin-top: 0;
             margin-bottom: 0;
             font-weight: bolder;
             text-transform: capitalize;
-         }
-         .logout_btn {
+        }
+
+        .logout_btn {
             background: rgb(204, 41, 0);
             text-transform: capitalize;
-         }
-         .review {
+        }
+
+        .review {
             margin: 1.5rem 0;
-         }
-         .review p {
+        }
+
+        .review p {
             margin: 0.8rem 0;
             color: darkgreen;
             opacity: 0.9;
             padding: 0.5rem;
             border: 1px solid lightgrey;
             text-transform: capitalize;
-         }
-         .review p span {
+        }
+
+        .review p span {
             font-weight: bolder;
             color: black;
             opacity: 0.8;
-         }
+        }
 
         /*Loader*/
         .lds-dual-ring {
-          display: inline-block;
-          width: 64px;
-          height: 64px;
+            display: inline-block;
+            width: 64px;
+            height: 64px;
         }
+
         .lds-dual-ring:after {
-          content: " ";
-          display: block;
-          width: 46px;
-          height: 46px;
-          margin: 1px;
-          border-radius: 50%;
-          border: 5px solid #3377c0;
-          border-color: #3377c0 transparent #3377c0 transparent;
-          animation: lds-dual-ring 1.2s linear infinite;
+            content: " ";
+            display: block;
+            width: 46px;
+            height: 46px;
+            margin: 1px;
+            border-radius: 50%;
+            border: 5px solid #3377c0;
+            border-color: #3377c0 transparent #3377c0 transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
         }
+
         @keyframes lds-dual-ring {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
         .loader_container {
             display: none;
         }
+
         .loader_container p {
             color: #3377c0;
         }
@@ -180,8 +200,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-spellcheck"></i>
-                        <input name="bvnNumber" type="text" class="form-control" id="bvn_number" required="required">
-
+                        <input name="bvn" type="text" class="form-control" id="bvn_number" required="required">
                     </div>
                     <p class="bvn_text"></p>
                 </div>
@@ -191,21 +210,22 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-calendar"></i>
-                        <input name="dob" type="text" class="form-control datepicker-here dob" data-language='en'
+                        <input id="dob" name="dob" type="text" class="form-control datepicker-here dob"
+                               data-language='en'
                                data-date-format="dd - mm - yyyy" id="dp1" required="required">
                     </div>
                     <p class="dob_text"></p>
                 </div>
             </div>
             <div style="margin: 0.5rem 0px">
-                    <label for="" style="display: inline-block;margin-bottom: 0.5rem">
-                        Form Serial Number
-                    </label>
-                    <div class="form-holder">
-                        <i class="zmdi zmdi-tag"></i>
-                        <input type="text" name="form_serial" class="form-control form_serial" required="required">
-                    </div>
+                <label for="" style="display: inline-block;margin-bottom: 0.5rem">
+                    Form Serial Number
+                </label>
+                <div class="form-holder">
+                    <i class="zmdi zmdi-tag"></i>
+                    <input type="text" name="formNumber" class="form-control form_serial" required="required">
                 </div>
+            </div>
             <div class="btn_container">
 
                 <button class="btn" id="validate_id" type="button">Next</button>
@@ -231,7 +251,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-account-o"></i>
-                        <input name="firstName" type="text" class="form-control first_name" required="required">
+                        <input name="firstname" type="text" class="form-control first_name" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -240,7 +260,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-account-o"></i>
-                        <input name="middleName" type="text" class="form-control middle_name" required="required">
+                        <input name="middlename" type="text" class="form-control middle_name" >
                     </div>
                 </div>
             </div>
@@ -251,7 +271,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-account-o"></i>
-                        <input name="lastName" type="text" class="form-control last_name" required="required">
+                        <input name="lastname" type="text" class="form-control last_name" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -297,7 +317,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-smartphone-android"></i>
-                        <input name="phoneNumber" type="text" class="form-control phone_number" required="required">
+                        <input name="phone" type="text" class="form-control phone_number" required="required">
                     </div>
                 </div>
                 <div class="form-col">
@@ -306,7 +326,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-smartphone-android"></i>
-                        <input name="additionalPhone" type="text" class="form-control additional_phone_number">
+                        <input name="additional_phone" type="text" class="form-control additional_phone_number">
                     </div>
                 </div>
 
@@ -317,7 +337,7 @@
                 </label>
                 <div class="form-holder">
                     <i class="zmdi zmdi-city"></i>
-                    <select name="residenceState" class="form-control state_of_residence states" required="required">
+                    <select name="residence_state" class="form-control state_of_residence states" required="required">
                         <option value="KANO">KANO</option>
                     </select>
                 </div>
@@ -330,7 +350,8 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-city-alt"></i>
-                        <select id="residence_lga" name="residenceLga" class="form-control lga_of_residence locals" required="required">
+                        <select id="residence_lga" name="residence_lga" class="form-control lga_of_residence locals"
+                                required="required">
                             <option value="">Select</option>
                             <option value="Ajingi">Ajingi</option>
                             <option value="Albasu">Albasu</option>
@@ -385,7 +406,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-city-alt"></i>
-                        <select name="electoralWard" id="wards" class="form-control electoral_ward" required="required">
+                        <select name="ward" id="wards" class="form-control electoral_ward" required="required">
                         </select>
                     </div>
                 </div>
@@ -400,7 +421,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-city"></i>
-                        <select name="stateOrigin" class="form-control state_of_origin states" required="required">
+                        <select name="origin_state" class="form-control state_of_origin states" required="required">
                             <option value="KANO">KANO</option>
                         </select>
                     </div>
@@ -411,7 +432,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-city-alt"></i>
-                        <select name="lgaOrigin" class="form-control lga_of_origin locals" required="required">
+                        <select name="origin_lga" class="form-control lga_of_origin locals" required="required">
                             <option value="">Select</option>
                             <option value="Ajingi">Ajingi</option>
                             <option value="Albasu">Albasu</option>
@@ -468,7 +489,8 @@
                     Residential Address
                     <div class="form-holder">
                         <i class="zmdi zmdi-home"></i>
-                        <input name="residentAddress" type="text" class="form-control residential_address" required="required">
+                        <input name="residence_address" type="text" class="form-control residential_address"
+                               required="required">
                     </div>
             </div>
 
@@ -480,10 +502,8 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-email-open"></i>
-                        <input name="postalCode" type="text" class="form-control postal_code">
+                        <input name="postal_code" type="text" class="form-control postal_code">
                     </div>
-
-
                 </div>
 
             </div>
@@ -495,8 +515,8 @@
             </label>
 
 
-            <input type="radio" name="disability" value="yes" class="disability_yes">Yes
-            <input type="radio" name="disability" value="no" checked="checked" class="disability_no">No
+            <input type="radio" name="isDisabled" value="yes" class="disability_yes">Yes
+            <input type="radio" name="isDisabled" value="no" checked="checked" class="disability_no">No
             <br>
             <br>
             <div class="hidden_disability">
@@ -505,13 +525,13 @@
                 </label>
                 <div class="form-holder">
                     <i class="zmdi zmdi-clinic"></i>
-                    <input name="disabilityType" type="text" class="form-control disability_desc">
+                    <input name="physical_disability_details" type="text" class="form-control disability_desc">
                 </div>
             </div>
 
             <div class="btn_container" style="justify-content: space-between;">
                 <button class="btn previous_btn">Previous</button>
-                <button type="button" class="btn" id="bio_data_validate" >Next</button>
+                <button type="button" class="btn" id="bio_data_validate">Next</button>
 
             </div>
         </section>
@@ -529,8 +549,8 @@
             <br>
 
 
-            <input type="radio" name="school" checked="checked" id="confirm_school_yes">Yes <br>
-            <input type="radio" name="school" id="confirm_school_no">No
+            <input type="radio" name="school" value="Yes" checked="checked" id="confirm_school_yes">Yes <br>
+            <input type="radio" name="school" value="No" id="confirm_school_no">No
             <br>
             <br>
             <div class="hidden_confirm">
@@ -539,7 +559,7 @@
                 </label>
                 <div class="form-holder">
                     <i class="zmdi zmdi-book"></i>
-                    <select name="educationLevel" class="form-control education_level" required="required">
+                    <select name="highest_education" class="form-control education_level" >
                         <option></option>
                         <option value="Primary">Primary</option>
                         <option value="Secondary">Secondary</option>
@@ -563,30 +583,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_1" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_1" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -607,30 +739,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_2" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_2" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -650,30 +894,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_3" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_3" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -693,30 +1049,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_4" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_4" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -736,30 +1204,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_5" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_5" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -779,30 +1359,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_6" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_6" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -822,30 +1514,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_7" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_7" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -865,30 +1669,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_8" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_8" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -908,30 +1824,142 @@
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-spellcheck"></i>
-                                    <select name="courseName" class="form-control course_name" required="required">
-                                        <option></option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="English Language">English Language</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Civic Education">Civic Education</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Animal & Husbandry">Animal & Husbandry</option>
-                                        <option value="Fishery">Fishery</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Data Processing">Data Processing</option>
-                                        <option value="Technical Drawing">Technical Drawing</option>
-                                        <option value="Computer Science">Computer Science</option>
+                                    <select name="subject_9" class="form-control course_name" required="required">
+                                        <option value="">select</option>
+                                        <option value="ARABIC">ARABIC</option>
+                                        <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                        <option value="AUTO PARTS MERCHANDISING">AUTO PARTS MERCHANDISING</option>
+                                        <option value="AUTO MECHANICS">AUTO MECHANICS</option>
+                                        <option value="AUTO MECHANICAL WORK">AUTO MECHANICAL WORK</option>
+                                        <option value="AUTO ELECTRICAL WORK">AUTO ELECTRICAL WORK</option>
+                                        <option value="AUTO BODY REPAIRS AND SPRAY PAINTING">AUTO BODY REPAIRS AND SPRAY
+                                            PAINTING
+                                        </option>
+                                        <option value="APPLIED ELECTRICITY OR BASIC ELECTRICITY">APPLIED ELECTRICITY OR
+                                            BASIC ELECTRICITY
+                                        </option>
+                                        <option value="ANIMAL HUSBANDRY">ANIMAL HUSBANDRY</option>
+                                        <option value="BUSINESS MANAGEMENT">BUSINESS MANAGEMENT</option>
+                                        <option value="BUILDING CONSTRUCTION">BUILDING CONSTRUCTION</option>
+                                        <option value="BOOK KEEPING">BOOK KEEPING</option>
+                                        <option value="BLOCKLAYING, BRICKLAYING AND CONCRETING">BLOCKLAYING, BRICKLAYING
+                                            AND CONCRETING
+                                        </option>
+                                        <option value="BIOLOGY">BIOLOGY</option>
+                                        <option value="BASKETRY">BASKETRY</option>
+                                        <option value="CROP HUSBANDRY AND HORTICULTURE">CROP HUSBANDRY AND
+                                            HORTICULTURE
+                                        </option>
+                                        <option value="COSMETOLOGY">COSMETOLOGY</option>
+                                        <option value="COMPUTER STUDIES">COMPUTER STUDIES</option>
+                                        <option value="COMMERCE">COMMERCE</option>
+                                        <option value="CLOTHING AND TEXTILES">CLOTHING AND TEXTILES</option>
+                                        <option value="CLERICAL OFFICE DUTIES">CLERICAL OFFICE DUTIES</option>
+                                        <option value="CIVIC EDUCATION">CIVIC EDUCATION</option>
+                                        <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
+                                        <option value="CHEMISTRY">CHEMISTRY</option>
+                                        <option value="CERAMICS">CERAMICS</option>
+                                        <option value="CATERING CRAFT PRACTICE">CATERING CRAFT PRACTICE</option>
+                                        <option value="CAPENTRY AND JOINERY">CAPENTRY AND JOINERY</option>
+                                        <option value="DYEING &amp; BLEACHING">DYEING &amp; BLEACHING</option>
+                                        <option value="DATA PROCESSING">DATA PROCESSING</option>
+                                        <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
+                                        <option value="ELECTRONICS OR BASIC ELECTRONICS">ELECTRONICS OR BASIC
+                                            ELECTRONICS
+                                        </option>
+                                        <option value="ELECTRICAL INSTALLATION AND MAINTENANCE">ELECTRICAL INSTALLATION
+                                            AND MAINTENANCE
+                                        </option>
+                                        <option value="EFIK">EFIK</option>
+                                        <option value="EDO">EDO</option>
+                                        <option value="ECONOMICS">ECONOMICS</option>
+                                        <option value="FURTHER MATHEMATICS">FURTHER MATHEMATICS</option>
+                                        <option value="FURNITURE MAKING">FURNITURE MAKING</option>
+                                        <option value="FRENCH">FRENCH</option>
+                                        <option value="FORESTRY">FORESTRY</option>
+                                        <option value="FOODS AND NUTRITION">FOODS AND NUTRITION</option>
+                                        <option value="FISHERIES">FISHERIES</option>
+                                        <option value="FINANCIAL ACCOUNTING">FINANCIAL ACCOUNTING</option>
+                                        <option value="TYPEWRITING">TYPEWRITING</option>
+                                        <option value="TOURISM">TOURISM</option>
+                                        <option value="TEXTILES">TEXTILES</option>
+                                        <option value="TECHNICAL DRAWING">TECHNICAL DRAWING</option>
+                                        <option value="STORE MANAGEMENT">STORE MANAGEMENT</option>
+                                        <option value="STORE KEEPING WAEC">STORE KEEPING WAEC</option>
+                                        <option value="SOCIAL STUDIES">SOCIAL STUDIES</option>
+                                        <option value="SHORTHAND">SHORTHAND</option>
+                                        <option value="SCULPTURE">SCULPTURE</option>
+                                        <option value="SALESMANSHIP">SALESMANSHIP</option>
+                                        <option value="REFRIGERATION AND AIR CONDITIONING">REFRIGERATION AND AIR
+                                            CONDITIONING
+                                        </option>
+                                        <option value="RADIO,TELEVISION AND ELECTRONICS WORKS">RADIO,TELEVISION AND
+                                            ELECTRONICS WORKS
+                                        </option>
+                                        <option value="PRINTING CRAFT PRACTICE">PRINTING CRAFT PRACTICE</option>
+                                        <option value="PRINCIPLES OF COST ACCOUNTING">PRINCIPLES OF COST ACCOUNTING
+                                        </option>
+                                        <option value="PLUMBING AND PIPE FITTING">PLUMBING AND PIPE FITTING</option>
+                                        <option value="PICTURE MAKING">PICTURE MAKING</option>
+                                        <option value="PHYSICS">PHYSICS</option>
+                                        <option value="PHYSICAL EDUCATION">PHYSICAL EDUCATION</option>
+                                        <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+                                        <option value="PAINTING AND DECORATING">PAINTING AND DECORATING</option>
+                                        <option value="OFFICE PRACTICE">OFFICE PRACTICE</option>
+                                        <option value="MUSIC">MUSIC</option>
+                                        <option value="MINING">MINING</option>
+                                        <option value="METALWORK">METALWORK</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="MACHINE WOODWORKING">MACHINE WOODWORKING</option>
+                                        <option value="LITERATURE IN ENGLISH">LITERATURE IN ENGLISH</option>
+                                        <option value="LEATHERWORK">LEATHERWORK</option>
+                                        <option value="LEATHER GOODS">LEATHER GOODS</option>
+                                        <option value="JEWELLERY">JEWELLERY</option>
+                                        <option value="ISLAMIC RELIGIOUS STUDIES">ISLAMIC RELIGIOUS STUDIES</option>
+                                        <option value="INTEGRATED SCIENCE">INTEGRATED SCIENCE</option>
+                                        <option value="INSURANCE">INSURANCE</option>
+                                        <option value="INFORMATION AND COMMUNICATION TECHNOLOGY">INFORMATION AND
+                                            COMMUNICATION TECHNOLOGY
+                                        </option>
+                                        <option value="IGBO">IGBO</option>
+                                        <option value="IBIBIO">IBIBIO</option>
+                                        <option value="HOME MANAGEMENT">HOME MANAGEMENT</option>
+                                        <option value="HISTORY">HISTORY</option>
+                                        <option value="HEALTH EDUCATION OR HEALTH SCIENCE">HEALTH EDUCATION OR HEALTH
+                                            SCIENCE
+                                        </option>
+                                        <option value="HAUSA">HAUSA</option>
+                                        <option value="GSM PHONES MAINTENANCE AND REPAIRS">GSM PHONES MAINTENANCE AND
+                                            REPAIRS
+                                        </option>
+                                        <option value="GRAPHIC DESIGN">GRAPHIC DESIGN</option>
+                                        <option value="GOVERNMENT">GOVERNMENT</option>
+                                        <option value="GHANAIAN LANGUAGES">GHANAIAN LANGUAGES</option>
+                                        <option value="GEOGRAPHY">GEOGRAPHY</option>
+                                        <option value="GENERAL MATHEMATICS OR MATHEMATICS">GENERAL MATHEMATICS OR
+                                            MATHEMATICS
+                                        </option>
+                                        <option value="GENERAL KNOWLEDGE IN ART">GENERAL KNOWLEDGE IN ART</option>
+                                        <option value="GENERAL AGRICULTURE">GENERAL AGRICULTURE</option>
+                                        <option value="GARMENT MAKING">GARMENT MAKING</option>
+                                        <option value="VISUAL ART">VISUAL ART</option>
+                                        <option value="UPHOLSTERY">UPHOLSTERY</option>
+                                        <option value="WOODWORK">WOODWORK</option>
+                                        <option value="WEST AFRICAN TRADITIONAL RELIGION">WEST AFRICAN TRADITIONAL
+                                            RELIGION
+                                        </option>
+                                        <option value="WELDING AND FABRICATION ENGINEERING CRAFT PRACTICE">WELDING AND
+                                            FABRICATION ENGINEERING CRAFT
+                                            PRACTICE
+                                        </option>
+                                        <option value="YORUBA">YORUBA</option>
                                     </select>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-check"></i>
-                                    <select name="courseGrade" class="form-control course_grade" required="required">
+                                    <select name="grade_9" class="form-control course_grade" required="required">
                                         <option></option>
                                         <option value="A1">A1</option>
                                         <option value="B2">B2</option>
@@ -952,16 +1980,24 @@
                     </table>
 
 
-                <div style="margin: 1rem 0px" class="school_attended">
-                    <label for="">
-                        School Attended
-                    </label>
-                    <div class="form-holder">
-                        <i class="zmdi zmdi-home"></i>
-                        <select name="school_attended" class="form-control" required="required">
-                        </select>
+                    <div style="margin: 1rem 0px" class="school_attended">
+                        <label for="">
+                            School Name
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input name="institution_name" type="text" class="form-control school_attended" >
+                        </div>
                     </div>
-                </div>
+
+                    <div style="margin: 0.5rem 0px" class="primary_cert">
+                        <label for="">
+                            First School Leaving Certificate(Optional)
+                        </label>
+                        <div class="form-holder">
+                            <input id="primary_cert" type="file" class="form-control "  name="primary_school_upload">
+                        </div>
+                    </div>
 
                 </div>
 
@@ -970,7 +2006,7 @@
                 </label>
                 <div class="form-holder">
                     <i class="zmdi zmdi-calendar"></i>
-                    <select name="yearAttended" class="form-control year_attended" required="required">
+                    <select name="year_attained" class="form-control year_attended" >
                         <option></option>
                         <option value="1990">1990</option>
                         <option value="1991">1991</option>
@@ -1006,14 +2042,13 @@
                 </div>
 
 
-
                 <div style="margin: 1rem 0px" class="hidden_for_sec">
                     <label for="">
                         Type of Institution
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-home"></i>
-                        <select name="institution_type" class="form-control type_of_institution" required="required">
+                        <select name="institution_type" class="form-control type_of_institution" >
                             <option>Select</option>
                             <option value="University">University</option>
                             <option value="Polytechnic">Polytechnic</option>
@@ -1032,7 +2067,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-home"></i>
-                        <select class="form-control institution_attended" name="institution_attended" required="required">
+                        <select class="form-control institution_attended" name="institution_name">
 
                         </select>
                     </div>
@@ -1045,28 +2080,75 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-book"></i>
-                        <input type="text" name="course_studied" class="form-control course_studied" required="required">
+                        <input type="text" name="course_of_study" class="form-control course_studied">
                     </div>
                 </div>
 
-                <div style="margin: 0.5rem 0px">
+                <div style="margin: 0.5rem 0px" class="hidden_for_sec">
                     <label for="">
                         Upload Certificate
                     </label>
                     <div class="form-holder">
-                        <input type="file" class="form-control certificate" required="required" name="certificate">
+                        <input id="cert_1" type="file" class="form-control certificate" name="degree_upload">
                         <hr>
-                      <label for="">
-                        Add additional Certificate
-                    </label>
-                        <input type="file" class="form-control certificate" name="additional_certificate">
-                        
-                    </div> 
-                    </div> 
+                        <label for="">
+                            Add additional Certificate
+                        </label>
+                        <input id="cert_2" type="file" class="form-control certificate" name="additional_degree_upload">
+
+                    </div>
+                </div>
 
                 <br>
                 <br>
+
+                <div class="no_confirm_display hidden_for_sec">
+                    <label for="">
+                        What is your National Youth Service Corps NYSC Status?
+                    </label>
+                    <br>
+
+                    <input type="radio" id="nysc_status_yes" value="Completed" name="nysc_status" checked="checked">Completed <br>
+                    <input type="radio" id="nysc_status_no" value="In-Progress" name="nysc_status">In-Progress <br>
+
+                </div>
+
+                <div style="margin: 0.5rem 0px" class="nysc_cert hidden_for_sec">
+                    <label for="">
+                        NYSC Certificate
+                    </label>
+                    <div class="form-holder">
+                        <input id="nysc" type="file" class="form-control certificate" name="nysc_upload">
+                        <hr>
+                    </div>
+                </div>
+
+                <div style="margin: 0.5rem 0px" class="nysc_completion hidden_for_sec">
+                    <label for="">
+                        Estimated year of completion
+                    </label>
+                    <div class="form-holder">
+                        <i class="zmdi zmdi-book"></i>
+                        <select class="form-control" name="nysc_estimated_year_of_completion">
+                            <option value="">Select</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+
+
+
             <div class="no_confirm_display">
                 <label for="">
                     Select your preferred program
@@ -1082,24 +2164,28 @@
                 <div class="btn_container" style="justify-content: space-between;">
                     <button class="btn previous_btn">Previous</button>
                     <button type="button" class="btn" id="education_validate">Next</button>
-
-
                 </div>
             </div>
+
+
         </section>
 
         <!-- SECTION 4 EMPLOYMENT SECTION -->
         <h4></h4>
         <section>
             <h3 style="margin-bottom: 37px;">Employment and other details</h3>
+            <br>
+            <p class="emp_error" style="text-align: center;font-weight: bold;"></p>
+            <br>
             <label for="">
                 Are you currently employed?
             </label>
             <br>
 
 
-            <input type="radio" name="employment" checked="checked" value="yes" class="employment_yes"> Yes <br>
-            <input type="radio" name="employment" value="yes" class="employment_no"> No
+            <input type="radio" name="isCurrentlyEmployed" checked="checked" value="yes" class="employment_yes"> Yes
+            <br>
+            <input type="radio" name="isCurrentlyEmployed" value="yes" class="employment_no"> No
             <br>
             <br>
 
@@ -1112,12 +2198,10 @@
                     <br>
                     <div class="form-holder">
                         <i class="zmdi zmdi-money"></i>
-                        <select class="form-control" required="required" name="earningPerMonth">
-                            <option></option>
-                            <option value="10,000">10,000</option>
-                            <option value="20,000">20,000</option>
-                            <option value="30,000">30,000</option>
-                        </select>
+                        <div class="form-holder">
+                            <input type="text" class="form-control " name="monthly_earnings">
+                            <hr>
+                        </div>
                     </div>
                 </div>
 
@@ -1126,16 +2210,11 @@
                         Dependents: How many people do you feed today(E.g, Family, Relatives, Parents) ?
                     </label>
                     <div class="form-holder">
-                        <i class="zmdi zmdi-account"></i>
-                        <select class="form-control" required="required" name="numberOfDependents">
-                            <option></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
+                        <i class="zmdi zmdi-nature-people"></i>
+                        <div class="form-holder">
+                            <input type="text" class="form-control certificate" name="earnings_dependencies">
+                            <hr>
+                        </div>
                     </div>
                 </div>
 
@@ -1143,15 +2222,13 @@
 
 
             <div class="form-row">
-
-
                 <div class="form-col">
                     <label for="">
                         Select ID Type
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-face"></i>
-                        <select class="form-control" required="required" name="indentity_type">
+                        <select id="id_type" class="form-control id_type" required="required" name="id_type">
                             <option></option>
                             <option value="national ID">National ID Card</option>
                             <option value="permanent voters card">Permanent Voter's Card</option>
@@ -1165,7 +2242,7 @@
                     </label>
                     <div class="form-holder">
                         <i class="zmdi zmdi-spellcheck"></i>
-                        <input type="text" class="form-control" required="required" name="indentity_number">
+                        <input id="id_number" type="text" class="form-control id_number" required="required" name="id_number">
                     </div>
                 </div>
 
@@ -1177,7 +2254,7 @@
                     Upload Government Issued ID
                 </label>
                 <div class="form-holder">
-                    <input type="file" class="form-control" required="required" name="upload_id">
+                    <input id="gov_id" type="file" class="form-control gov_id" required="required" name="id_upload">
                 </div>
             </div>
 
@@ -1187,13 +2264,13 @@
                     Upload Passport Photograph
                 </label>
                 <div class="form-holder">
-                    <input type="file" class="form-control" required="required" name="upload_passport">
+                    <input id="passport" type="file" class="form-control passport" required="required" name="passport_upload">
                 </div>
             </div>
 
             <div class="btn_container" style="justify-content: space-between;">
                 <button class="btn previous_btn">Previous</button>
-                <button type="button" class="btn next_btn" id="btn_review" >Next</button>
+                <button type="button" class="btn next_btn" id="btn_review">Next</button>
 
             </div>
         </section>
@@ -1204,25 +2281,39 @@
             <h3 style="margin-bottom: 37px;">Review and submit</h3>
             <div class="review"></div>
 
-               <div class="loader_container">
+            <div class="loader_container">
                 <div class="lds-dual-ring"></div>
                 <p><strong>Please Wait...</strong></p>
-                </div>
+            </div>
 
             <div class="btn_container">
-            <button class="btn previous_btn">Previous</button>
-            <input type="submit" name="confirm" class="btn" id="confirm_btn" value="Confirm">
+                <button class="btn previous_btn">Previous</button>
+                <input type="submit" name="confirm" class="btn" id="confirm_btn" value="Confirm">
             </div>
         </section>
 
 
     </form>
+
+
 </div>
+
+<!--<br><br>-->
+<footer style="text-align: center">
+    <p class="copywrite">
+        Copyright © 2020 Kano State N-Power Support. All Rights Reserved.
+    </p>
+    <br>
+    <p class="user-info">
+        Powered by : <a href="http://www.ipplusng.com">IPPLUS Nigeria LTD</a>
+    </p>
+
+</footer>
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>-->
 <!-- loading the minified version using jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js"></script>-->
 
 <!-- DATE-PICKER -->
 <script src="vendor/date-picker/js/datepicker.js"></script>
